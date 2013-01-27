@@ -1,6 +1,6 @@
 module ApplicationHelper
   def full_title(page_title)
-    base_title = "ginga WHAT?"
+    base_title = "ginga what?"
     if page_title.empty?
       base_title
     else

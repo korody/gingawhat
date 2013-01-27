@@ -1,3 +1,34 @@
+@import 'presets'
+
+// html, body
+//   height: 100%
+//   width: 100%
+
 body
-  background: url("ginga_cover.jpg") no-repeat
-  background-size: cover
+  // background: url("post.png") no-repeat center
+
+  #container
+    text-align: center
+
+  img.logo
+    height: 630px
+    min-width: 630px
+
+  img.soon
+    height: 201px
+    min-width: 630px
+
+  ul
+    font-size: 40px
+    list-style-type: none
+
+    li
+      display: inline-block
+
+      a
+        color: $ginga
+
+        &:hover
+          text-decoration: none
+          color: #9C9FA4
+
