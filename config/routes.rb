@@ -1,6 +1,6 @@
 Gingawhat::Application.routes.draw do
   
-  match '/about',   to: 'pages#about', as: 'about'
+  match '/contact',   to: 'pages#contact', as: 'contact'
 
   root to: 'pages#home'
 
