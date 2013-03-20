@@ -1,6 +1,8 @@
-$border: #DDD
+$border: blue
 $text: black
 $link: #FFA07A
+$base: #F8F8F8
+$base-creme: #FFF9F3
 $ginga: #63CE6E
 
 .border
@@ -10,3 +12,29 @@ $ginga: #63CE6E
   border-radius: $radius
   -moz-border-radius: $radius
   -webkit-border-radius: $radius
+
+@mixin transparency($transparency)
+  opacity: $transparency
+
+@mixin transparency_ie($transparency_ie)
+  filter: $transparency_ie
+  zoom: 1
+
+.btn
+  margin-bottom: 4px 
+  margin-top: 4px
+
+ul
+  margin: 0
+  
+  li
+    list-style-type: none
+
+a
+  color: $ginga
+
+  &:hover
+    text-decoration: none
+
+.center
+  text-align: center

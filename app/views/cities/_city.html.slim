@@ -1,0 +1,4 @@
+- city.thumbnails.shuffle.first(1).each do |t|
+  = link_to image_tag(t.thumb_url(:thumb)).to_s, city
+  p.gradient = link_to city.name, city
+  

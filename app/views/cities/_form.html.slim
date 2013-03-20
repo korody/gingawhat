@@ -1,0 +1,15 @@
+= render 'error_messages', object: @city
+= simple_nested_form_for @city, as: :city, html: { class: 'form-vertical', multipart: true } do |f|
+  / = hidden_field_tag 'city_id', value: params['city_id']
+  / = hidden_field_tag 'city_id', @city.id
+  = f.simple_fields_for :thumbnails do |a|
+    = a.file_field :thumb, class: 'btn btn-primary'
+    / = a.link_to_remove "remove image field", class: 'btn btn-danger'
+  = f.link_to_add "add image field", :thumbnails, class: 'btn'
+  br
+  br
+  = f.input :name, wrapper: :prepend, error: false, label: false do
+    span.add-on = icon_tag 'globe'
+    = f.input_field :name, class: 'span4', placeholder: 'name'
+  = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 3}, placeholder: 'description'
+  = f.submit 'update city', class: 'btn btn-success span5'

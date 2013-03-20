@@ -1,0 +1,15 @@
+= render 'error_messages', object: @post
+= simple_nested_form_for @post, as: :post, html: { class: 'form-vertical', multipart: true } do |f|
+  / = f.simple_fields_for :attachments do |a|
+  /   = a.file_field :image, class: 'btn btn-primary'
+  /   / = a.link_to_remove "remove image field", class: 'btn btn-danger'
+  / = f.link_to_add "add image field", :attachments, class: 'btn'
+  br
+  br
+  = f.input :title, wrapper: :prepend, error: false, label: false do
+    span.add-on = icon_tag 'beaker'
+    = f.input_field :title, class: 'span4', placeholder: 'title'
+  = f.input :content, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 20}, placeholder: 'content'
+  = f.submit 'update post', class: 'btn btn-large btn-success span5'
+  br
+  = link_to "delete post", post_path(@post.id), method: "delete", class: 'btn btn-danger', confirm: "sure?"  

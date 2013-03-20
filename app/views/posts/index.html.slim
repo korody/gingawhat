@@ -1,0 +1,12 @@
+- provide :title, 'blog'
+section
+  .row-fluid
+    ul.stretch
+      - @cities.shuffle.each do |city|
+        .custom_span1
+          li.mosaico_item
+            = render 'cities/city', city: city
+
+section
+  = render @posts
+  = link_to "new post", new_post_path, class: 'btn btn-success'

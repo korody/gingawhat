@@ -5,20 +5,46 @@
 //   width: 100%
 
 body
+  font-family: "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans serif
   // background: url("post.png") no-repeat center
+
+  #menubar
+    // background-color: rgba(99, 206, 110, 0.4)
+    // border-bottom: 1px dashed $border  
+
+    ul
+      margin: 0
+      
+      a
+        text-shadow: none
+
+    .span2
+      padding: 64px 0
+
+    .span4
+      text-align: center
+
+      #logo
+        padding: 0
+
+      img
+        height: 150px
+        width: 150px
+
+    a:hover
+      color: $ginga
+
+    a.active
+      color: $ginga
 
   #container
     text-align: center
-
-  img.logo
-    height: 630px
-    min-width: 630px
 
   img.soon
     height: 201px
     min-width: 630px
 
-  ul
+  ul#icons-soon
     font-size: 40px
     list-style-type: none
 

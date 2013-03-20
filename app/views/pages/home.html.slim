@@ -1,8 +1,8 @@
+- provide :title, 'home'
 .row
   .span12#container
     iframe width="1170" height="658" src="http://www.youtube.com/embed/fzLTrKKSTdY?autoplay=1".html_safe frameborder="0" allowfullscreen
-    / = image_tag "post.png", class: 'logo'
     = image_tag "soon.jpg", class: 'soon'
-    ul
+    ul#icons-soon
       li = link_to (icon_tag 'facebook', "facebook"), 'https://www.facebook.com/pages/ginga-what/573415686019103', target: '_blank'
       li = link_to (icon_tag 'camera', "instagram"), 'http://www.instagram.com/gingawhat/', target: '_blank'
