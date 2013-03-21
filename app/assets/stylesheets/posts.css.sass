@@ -29,3 +29,40 @@ p.post-date
     font-size: 20px
     line-height: 1.6
     text-align: justify
+
+#tags
+  font-size: 16px
+
+  i
+    color: $ginga
+    font-size: 35px
+
+#tag-cloud
+  margin: 40px 0
+
+  p
+    border: $border 1px solid
+    display: inline-block
+    padding: 4px 8px
+    margin: 0 20px
+    @include round(4px)
+
+    &:hover
+      background-color: $ginga
+
+    &:hover a
+      color: white
+
+  a
+    color: #333
+
+  a.s
+    font-size: 1em
+  
+  a.m
+    font-size: 1.4em
+  
+  a.l
+    font-size: 2em
+
+

@@ -6,6 +6,8 @@ Gingawhat::Application.routes.draw do
 
   resources :posts
 
+  get 'tags/:tag', to: 'posts#index', as: :tag
+
   match '/blog',   to: 'posts#index', as: 'blog'
   match '/contact',   to: 'pages#contact', as: 'contact'
 

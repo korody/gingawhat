@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.scoped
+    if params[:tag]
+        @posts = Post.tagged_with(params[:tag])
+      else
+        @posts = Post.scoped.order('posts.created_at DESC')
+      end
     @cities = City.scoped
   end
 

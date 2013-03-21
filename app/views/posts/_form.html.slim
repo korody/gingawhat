@@ -10,6 +10,8 @@
     span.add-on = icon_tag 'beaker'
     = f.input_field :title, class: 'span4', placeholder: 'title'
   = f.input :content, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 20}, placeholder: 'content'
+  = f.text_field :tag_list, placeholder: 'tags (separated by commas)', class: 'span5'
+  br
   = f.submit 'update post', class: 'btn btn-large btn-success span5'
   br
-  = link_to "delete post", post_path(@post.id), method: "delete", class: 'btn btn-danger', confirm: "sure?"  
+  = link_to "delete post", post_path(@post.id), method: "delete", class: 'btn btn-danger', confirm: "sure?" if !@post.new_record?  
