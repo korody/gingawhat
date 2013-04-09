@@ -1,0 +1,12 @@
+var $postal = $('#postal-frame'); 
+    $sent = $('#postal-sent'); 
+  <% if @message.valid? %>
+    $sent.css('visibility','visible');
+    $postal.hide("slide", { direction: "right" }, 800);
+    setTimeout(function() {
+      $postal.show("slide", 1500).html("<%= j render 'new' %>");
+      $sent.fadeOut(4000);
+    }, 6000);
+  <% else %>
+    $postal.effect('shake').html("<%= j render 'new' %>");
+  <% end %>

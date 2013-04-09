@@ -1,15 +1,16 @@
-.strip
-  p.post-month = post.created_at.strftime('%m</br>%y').html_safe
-p.post-date = post.created_at.strftime('%d')
-.container.content
-  h2 = link_to post.title, post
-  p = post.content
-  / ul.image-list
-  /   - @post.attachments.each do |t|
-  /     li
-  /       = link_to image_tag(t.image_url(:thumb)).to_s, t
-  #tags.center
-    = icon_tag 'tag' if post.tags.any?
-    br
-    = raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
-  
+= content_tag 'div', class:"element #{post.tags.map(&:name).map { |t| t }.join(' ')}".html_safe do
+  .post.center.thumbnail
+    p.post-date = post.created_at.strftime('%d')
+    p.header = link_to content_tag(:span, post.title.upcase), post
+    .post-frame
+      ul.image-list
+        - post.attachments.each do |t|
+          li
+            = image_tag(t.file_url).to_s
+      p.content = post.content
+    .post-footer.clearfix
+      .tags.pull-left
+        = icon_tag 'tag' if post.tags.any?
+        = raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+      .by.pull-right
+        = "#{icon_tag 'pencil'} postado por #{link_to 'ginga what?', nil} há #{time_ago_in_words(post.created_at)}".html_safe

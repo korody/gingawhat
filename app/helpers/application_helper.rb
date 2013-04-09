@@ -12,12 +12,20 @@ module ApplicationHelper
     "active" if controller?(controller) && action?(action)
   end
 
+  def active_city?(city_id)
+    "active" if city?(city_id)
+  end
+
   def tag_cloud(tags, classes)
     max = tags.sort_by(&:count).last
-    tags.each do |tag|
+    tags.first(28).each do |tag|
       index = tag.count.to_f / max.count.to_i * (classes.size - 1)
       yield(tag, classes[index.round])
     end
+  end
+
+  def paginate_with(collection)
+    will_paginate(collection, renderer: BootstrapPagination::Rails)
   end
 
   private
@@ -28,5 +36,9 @@ module ApplicationHelper
 
     def action?(*action)
       action.include?(params[:action])
+    end
+
+    def city?(city_id)
+      city_id == @city.id if params[:city]
     end
 end

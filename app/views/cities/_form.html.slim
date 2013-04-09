@@ -1,7 +1,5 @@
 = render 'error_messages', object: @city
 = simple_nested_form_for @city, as: :city, html: { class: 'form-vertical', multipart: true } do |f|
-  / = hidden_field_tag 'city_id', value: params['city_id']
-  / = hidden_field_tag 'city_id', @city.id
   = f.simple_fields_for :thumbnails do |a|
     = a.file_field :thumb, class: 'btn btn-primary'
     / = a.link_to_remove "remove image field", class: 'btn btn-danger'

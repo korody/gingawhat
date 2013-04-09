@@ -1,0 +1,15 @@
+var allcities = $('#stretch'),
+    cities = allcities.find('li.mosaico_item');
+
+cities.click(function(){
+  var city = $(this);
+
+  if ( city.hasClass('active') ) {
+    city.removeClass('active');
+    return false;
+  }
+
+  allcities.find('.active').removeClass('active');
+  city.addClass('active');
+});
+

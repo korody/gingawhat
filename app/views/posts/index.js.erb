@@ -1,0 +1,23 @@
+$('#remote').hide().fadeToggle(1500).html("<%= j render 'index' %>");
+// var $posts = $("<%= j render 'index' %>");
+// $('#remote').hide().slideDown(1500).html($posts).isotope('addItems', $posts);
+// $('#posts').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+
+// var city = $(this);
+
+var allcities = $('#stretch'),
+    activecity = allcities.find('li.mosaico_item.active'),
+    url = document.URL;
+
+activecity.click(function(){
+  $('#remote').hide().fadeToggle(1500).html("<%= j render 'index' %>");
+  // $('#remote').hide().fadeToggle(1500).html("<%= j render 'index', :locals => { city: '7' } %>");
+});
+
+// $('#posts').after('<%= j render(@posts) %>');
+// <% if @posts.next_page %>
+//   $('.pagination').replaceWith('<%= j paginate_with(@posts) %>');
+// <% else %>
+//   $('.pagination').html('<p class= "center lead">Por hoje é só, pessoal!</p>');
+// <% end %>
+// <% sleep 1 %>

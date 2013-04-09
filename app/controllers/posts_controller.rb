@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
+  
   def index
-    if params[:tag]
-        @posts = Post.tagged_with(params[:tag])
-      else
-        @posts = Post.scoped.order('posts.created_at DESC')
-      end
+    @all_posts = Post.scoped
+    @posts = Post.filter(params).order('posts.created_at DESC').paginate(page: params[:page], per_page: 20)
+    @posts_by_month = @posts.group_by { |post| post.created_at.beginning_of_month }
     @cities = City.scoped
+    @city = City.find(params[:city]) if params[:city]
   end
 
   def show

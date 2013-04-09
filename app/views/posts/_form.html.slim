@@ -1,11 +1,14 @@
 = render 'error_messages', object: @post
 = simple_nested_form_for @post, as: :post, html: { class: 'form-vertical', multipart: true } do |f|
-  / = f.simple_fields_for :attachments do |a|
-  /   = a.file_field :image, class: 'btn btn-primary'
-  /   / = a.link_to_remove "remove image field", class: 'btn btn-danger'
-  / = f.link_to_add "add image field", :attachments, class: 'btn'
+  = f.simple_fields_for :attachments do |a|
+    = a.file_field :file, class: 'btn btn-primary'
+    / = a.link_to_remove "remove image field", class: 'btn btn-danger'
+  = f.link_to_add "add image field", :attachments, class: 'btn'
   br
   br
+  = f.input :from_city, wrapper: :prepend, error: false, label: false do
+      span.add-on = icon_tag 'globe'
+      = f.select :from_city, Post.cities
   = f.input :title, wrapper: :prepend, error: false, label: false do
     span.add-on = icon_tag 'beaker'
     = f.input_field :title, class: 'span4', placeholder: 'title'

@@ -2,7 +2,7 @@
 
 /* ----- INDEX ----- */
 
-ul.stretch
+ul#stretch
   // background-color: $ginga
   float: left
 
@@ -14,8 +14,10 @@ ul.stretch
   li.mosaico_item
     display: inline-block
     position: relative
-    @include transparency(0.6)
-    @include transparency_ie(alpha(opacity='60'))
+
+    img
+      @include transparency(0.6)
+      @include transparency_ie(alpha(opacity='60'))
 
     p
       bottom: 0
@@ -32,9 +34,20 @@ ul.stretch
     a
       color: #FFF
 
+  li.mosaico_item.active
+  
+    img
+      @include transparency(1)
+      @include transparency_ie(alpha(opacity='100'))
+
+    p
+      visibility: visible
+
   li.mosaico_item:hover
-    @include transparency(1)
-    @include transparency_ie(alpha(opacity='100'))
+
+    img
+      @include transparency(1)
+      @include transparency_ie(alpha(opacity='100'))
 
     p
       visibility: visible
@@ -55,9 +68,8 @@ ul.stretch
 
 .city-background
   position: absolute
-  // top: 0
+  top: 0
   z-index: -1
-  opacity: 0.4
 
 ul.thumb-list
   margin: 0

@@ -1,0 +1,100 @@
+@import 'presets'
+
+#postal-sent
+  height: 700px
+  position: absolute
+  visibility: hidden
+  width: 1200px
+  z-index: -1
+
+
+.alert-success
+  background: url('letter.jpg') no-repeat center
+  background-color: white
+  height: 700px
+  position: absolute
+  width: 1200px
+  padding: 0
+
+  p
+    font-size: 40px
+    line-height: 2
+    padding: 345px 80px 80px
+
+.alert-error
+  background-color: white
+  position: absolute
+  width: 470px
+
+  ul > li
+    margin: 20px 0
+
+#contact-background
+  background: url('postal.jpg') no-repeat center 
+  height: 775px
+  margin-top: -40px
+  width: 1200px
+  z-index: -1
+  position: absolute
+
+#contact-container
+  height: 775px
+  margin-top: -40px
+  // position: relative
+  width: 100%
+
+  #postal
+    font-size: 20px
+    line-height: 1.8
+    position: relative
+
+    #content, #address
+      // position: absolute
+      padding-top: 340px
+
+    p
+      color: $postal
+
+    textarea, input
+      background-color: transparent
+      border: 0
+      border-bottom: 2px solid $postal
+      border-radius: 0
+      box-shadow: none
+      color: $postal-marine
+      font-size: 20px
+      margin-bottom: 40px
+      -webkit-box-shadow: none
+
+    button#send-mail
+      color: $postal-marine
+      font-size: 20px
+      text-shadow: none
+      text-decoration: none
+
+      &.active
+        color: $postal
+
+      &:hover
+        color: $postal
+
+      i 
+        margin: 6px
+
+    textarea
+      border: 0
+      line-height: 1.5
+
+    ::-webkit-input-placeholder
+      color: $postal
+
+    :-moz-placeholder
+      color: $postal
+
+    ::-moz-placeholder
+      color: $postal
+
+    :-ms-input-placeholder
+      color: $postal
+
+

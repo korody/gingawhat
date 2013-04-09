@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
-  def home
+  
+  def welcome
   end
 
-  def contact
+  def home
+    @cities = City.scoped
   end
+
 end

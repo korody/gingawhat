@@ -1,15 +1,13 @@
 @import 'presets'
 
-// html, body
-//   height: 100%
-//   width: 100%
-
 body
   font-family: "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans serif
   // background: url("post.png") no-repeat center
 
+  .navbar-static-top
+
   #menubar
-    // background-color: rgba(99, 206, 110, 0.4)
+    // background-color: rgba(99, 206, 110, 0.1)
     // border-bottom: 1px dashed $border  
 
     ul
@@ -17,6 +15,7 @@ body
       
       a
         text-shadow: none
+        // color: #333
 
     .span2
       padding: 64px 0
@@ -30,6 +29,7 @@ body
       img
         height: 150px
         width: 150px
+        z-index: 20
 
     a:hover
       color: $ginga
@@ -58,3 +58,13 @@ body
           text-decoration: none
           color: #9C9FA4
 
+  .home-background
+    position: absolute
+    top: 0
+    z-index: -1
+
+    img
+      width: 100%
+
+  .pagination
+    margin-top: 100px

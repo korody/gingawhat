@@ -1,4 +1,5 @@
-- city.thumbnails.shuffle.first(1).each do |t|
-  = link_to image_tag(t.thumb_url(:thumb)).to_s, city
-  p.gradient = link_to city.name, city
-  
+.custom_span1
+  li.mosaico_item class=active_city?(city.id)
+    - city.thumbnails.shuffle.first(1).each do |t|
+      = link_to image_tag(t.thumb_url(:thumb)).to_s, posts_path(city: city), city_id: city.id, remote: true
+      p.gradient = link_to city.name, posts_path(city: city), city_id: city.id, remote: true

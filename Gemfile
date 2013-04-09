@@ -7,7 +7,8 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rake', '>= 10.0.3'
-
+gem 'will_paginate' 
+gem 'will_paginate-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.

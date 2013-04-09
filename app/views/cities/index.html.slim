@@ -2,7 +2,6 @@ section
   .row-fluid
     ul.stretch
       - @cities.shuffle.each do |city|
-        .custom_span1
-          li.mosaico_item
-            = render 'cities/city', city: city
-  = link_to "delete", city_path(city.id), method: 'delete', class: 'btn btn-danger'
+        li.mosaico_item
+          = render 'cities/city', city: city
+        = link_to "delete", city_path(city.id), method: 'delete', class: 'btn btn-danger'

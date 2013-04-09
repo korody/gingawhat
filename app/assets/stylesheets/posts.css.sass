@@ -1,60 +1,101 @@
 @import 'presets'
 
-.strip
+#remote
+  margin-bottom: 80px
+  min-height: 200px
+
+.strip-month
   background: url("ring.png") no-repeat center
   background-color: $ginga
   padding: 40px 0
   width: 100%
 
-p.post-month
+.strip-empty
+  background: url("smiley.png") no-repeat center
+  background-color: rgba(86, 188, 188, 0.65)
+  height: 160px
+  width: 100%
+
+p.post-strip
   color: white
-  font-size: 35px
+  font-size: 30px
   line-height: 1.2
-  margin-bottom: 0
-  text-align: center
 
-p.post-date
-  color: $ginga
-  font-size: 35px
-  margin-bottom: 0
-  text-align: center
+.corner-strip
+  // border: $ginga 1px dashed
+  background-color: $base
+  color: $gray
+  font-size: 16px
+  margin-bottom: 1px
+  padding: 40px 0
 
-.content
-  margin-bottom: 40px
-
-  h2
-    text-align: center
-  
   p
-    font-size: 20px
+    margin: 0
+  
+  i
+    margin: 6px
+
+// .row-fluid [class*="span"]:nth-child(3n + 1)
+.row-fluid [class*="span"]
+  margin: 0
+
+.post
+  padding: 20px 20px 10px
+  position: relative
+
+  &:hover
+    background-color: $base
+
+  p
+    margin: 20px 0
+
+  span
+    position: absolute
+    height: 100%
+    left: 0
+    padding-top: 62px
+    top: 0
+    width: 100%
+    z-index: 2
+
+  p.post-date
+    color: $gray
+    font-size: 24px
+    line-height: 0.1
+    margin-bottom: 80px
+
+  p.header > a
+    color: $gray
+    font-size: 16px
+
+.post-frame
+
+  p.content
+    font-size: 15px
     line-height: 1.6
     text-align: justify
 
-#tags
-  font-size: 16px
+.post-footer
 
-  i
-    color: $ginga
-    font-size: 35px
+  .tags, .by
+    font-size: 15px
 
-#tag-cloud
-  margin: 40px 0
+    i
+      color: $gray
+      margin: 6px
 
-  p
-    border: $border 1px solid
-    display: inline-block
-    padding: 4px 8px
-    margin: 0 20px
-    @include round(4px)
+ul#tag-cloud
+  margin: 20px 0
 
-    &:hover
-      background-color: $ginga
+  li
+    margin: 4px
+  
+    a
+      border: $border 1px solid
 
-    &:hover a
-      color: white
-
-  a
-    color: #333
+    .active
+      background-color: #eee
+      color: $gray
 
   a.s
     font-size: 1em
@@ -65,4 +106,13 @@ p.post-date
   a.l
     font-size: 2em
 
+  li.all > a 
+    border: 0
+    color: $gray
 
+.not-yet
+  font-size: 30px
+  margin: 40px
+
+  i
+    margin: 14px
