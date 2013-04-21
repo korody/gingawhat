@@ -1,0 +1,10 @@
+.row-fluid.ac
+  / .strip
+  /   p = "Não somos ninguém mas vamos mostrar ao mundo<br>essa ginga que só o brasileiro tem.".html_safe  
+  ul#users-list.isotope
+    - @users_by_type.each do |type, users|
+      = content_tag 'div', class:"span3 element strip #{users.map { |u| u.city_id }.join(' ')} #{type.downcase}".html_safe do
+        p = "#{type.downcase} #{icon_tag 'chevron-right'}".html_safe
+        / = render 'strip', type: type, users: users
+      - users.each do |user|
+        = render 'user', user: user, type: type

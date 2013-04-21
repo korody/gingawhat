@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :authenticate, only: [:new, :create, :destroy, :edit]
+  before_filter :authorized_user, only: [:edit, :update, :destroy]
   
   def index
     @all_posts = Post.scoped
@@ -17,7 +19,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(params[:post])
+    @user = current_user
+    @post = @user.posts.create(params[:post])
     redirect_to @post
   end
 
@@ -35,5 +38,12 @@ class PostsController < ApplicationController
     Post.find(params[:id]).destroy
     redirect_to @posts
   end
+
+  private
+
+    def authorized_user
+      @post = current_user.posts.find_by_id(params[:id])
+      redirect_to root_path if @post.nil?
+    end
 
 end

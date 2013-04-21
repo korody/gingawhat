@@ -1,16 +1,16 @@
-= content_tag 'div', class:"element #{post.tags.map(&:name).map { |t| t }.join(' ')}".html_safe do
-  .post.center.thumbnail
+= content_tag 'div', class:"span4 element #{post.tags.map(&:name).map { |t| t }.join(' ')} #{post.city_id}".html_safe do
+  .post.ac.thumbnail
     p.post-date = post.created_at.strftime('%d')
-    p.header = link_to content_tag(:span, post.title.upcase), post
-    .post-frame
-      ul.image-list
-        - post.attachments.each do |t|
-          li
-            = image_tag(t.file_url).to_s
-      p.content = post.content
+    p.header = link_to post.title.upcase, post
+    ul.image-list
+      - post.attachments.each do |t|
+        li
+          = image_tag(t.image_url(:medium)).to_s
+    .post-body
+      p.content = "#{truncate(post.content, length: 800)} #{link_to "quero +", post}".html_safe
     .post-footer.clearfix
       .tags.pull-left
         = icon_tag 'tag' if post.tags.any?
         = raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
       .by.pull-right
-        = "#{icon_tag 'pencil'} postado por #{link_to 'ginga what?', nil} há #{time_ago_in_words(post.created_at)}".html_safe
+        = "#{icon_tag 'pencil'} postado por #{link_to current_user.name, current_user} há #{time_ago_in_words(post.created_at)}".html_safe

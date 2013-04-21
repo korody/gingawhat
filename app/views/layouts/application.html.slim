@@ -10,5 +10,9 @@ html
     meta name='viewport" content="width=device-width, initial-scale=1.0'
   body
     = render 'header'
+    .container
+      = render partial: 'flash', object: flash
     = yield
+    = render 'modal'
+    = render 'footer'
   = javascript_include_tag "application"

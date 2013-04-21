@@ -1,12 +1,12 @@
-= render 'error_messages', object: @message
+= render 'stuck_message', object: @message
 = simple_form_for @message, url: hello_path, html: { class: 'form-vertical' }, remote: true do |f|
   .span6#content
     = f.input_field :assunto, class: 'span5', placeholder: 'assunto'
     = f.input :mensagem, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 10}, placeholder: 'mensagem', autofocus: true
   .span5#address
-    = f.input_field :nome, class: 'span5', placeholder: 'nome'
+    = f.input_field :name, class: 'span5', placeholder: 'nome'
     = f.input_field :email, class: 'span5', placeholder: 'e-mail'
-    = f.input_field :telefone, class: 'span5', placeholder: 'telefone'
+    = f.input_field :phone, class: 'span5', placeholder: 'telefone'
     p ginga what?
     p hello@gingawhat.com
     p +55 11 99937-0089

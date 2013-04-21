@@ -1,0 +1,7 @@
+- if object.errors.any?
+  .alert.alert-shake
+    = content_tag :button, 'x'.html_safe, class: 'close', data: { dismiss: 'alert' }
+    p = "<strong> Oops! </strong> Quase #{object.name}! Só precisamos de mais alguns detalhes:".html_safe 
+    ul
+      - object.errors.full_messages.each do |message|
+        li = "#{message}.".html_safe

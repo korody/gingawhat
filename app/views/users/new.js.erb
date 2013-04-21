@@ -1,0 +1,6 @@
+var rv_modal = $('#ajax-modal');
+rv_modal.html('<%= j render("form") %>').modal();
+
+setTimeout(function () {
+  rv_modal.find('input#user_name').focus();
+}, 500);

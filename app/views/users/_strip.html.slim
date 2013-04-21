@@ -1,0 +1,56 @@
+- if @users
+  - if params[:type] == "Idealizadores"
+    .strip
+      p = "something</br>somethin else".html_safe
+  - elsif params[:type] == "Colaboradores"
+    .strip.colaboradores
+      p = "something</br>somethin else".html_safe
+  - elsif params[:type] == "Participantes"
+    .strip.participantes
+      p = "something</br>somethin else".html_safe
+  - elsif params[:type] == "Parceiros"
+    .strip.parceiros
+      p = "something</br>somethin else".html_safe
+  - elsif params[:city] == "1"
+    .strip
+      p = "Os paulistanos são a engrenagem do Brasil,</br>mas garantem que também tem ginga!.".html_safe
+  - elsif params[:city] == "2"
+    .strip
+      p = "Em Curitiba...</br>a ginga...".html_safe
+  - elsif params[:city] == "3"
+    .strip
+      p = "Em Porto Alegre...</br>a ginga...".html_safe
+  - elsif params[:city] == "4"
+    .strip
+      p = "Em Cuiabá...</br>a ginga...".html_safe
+  - elsif params[:city] == "5"
+    .strip
+      p = "Os soteropolitanos...</br>a ginga...".html_safe
+  - elsif params[:city] == "6"
+    .strip
+      p = "Em Belo Horizonte...</br>a ginga...".html_safe
+  - elsif params[:city] == "7"
+    .strip
+      p = "Em Manaus...</br>a ginga...".html_safe
+  - elsif params[:city] == "8"
+    .strip
+      p = "Em Natal...</br>a ginga...".html_safe
+  - elsif params[:city] == "9"
+    .strip
+      p = "Em Recife...</br>A ginga...".html_safe
+  - elsif params[:city] == "10"
+    .strip
+      p = "Em Fortaleza...</br>a ginga...".html_safe
+  - elsif params[:city] == "11"
+    .strip
+      p = "Em Brasília...</br>a ginga...".html_safe
+  - elsif params[:city] == "12"
+    .strip
+      p = "Para os cariocas,</br>a ginga É o carioca.".html_safe
+  - else
+    .strip
+      p = "Não somos ninguém mas vamos mostrar ao mundo<br>essa ginga que só o brasileiro tem.".html_safe
+- else
+  .strip-empty
+  p.not-yet = "Ah, não! Ainda não temos #{params[:type].downcase}... #{icon_tag 'group'}".html_safe if params[:type]
+  p.not-yet = "Ah, não! Ninguém de #{@city.name} por enquanto...".html_safe if params[:city]

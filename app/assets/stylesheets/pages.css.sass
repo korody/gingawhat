@@ -1,10 +1,9 @@
 @import 'presets'
 
 body
+  height: 100%
   font-family: "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans serif
   // background: url("post.png") no-repeat center
-
-  .navbar-static-top
 
   #menubar
     // background-color: rgba(99, 206, 110, 0.1)
@@ -32,10 +31,18 @@ body
         z-index: 20
 
     a:hover
-      color: $ginga
+      color: $ginga-verde
 
     a.active
-      color: $ginga
+      color: $ginga-verde
+
+  #footer.navbar .nav, #footer.navbar .nav > li
+    display: inline-block
+    height: 40px
+    float: none
+
+    a
+      text-shadow: none
 
   #container
     text-align: center
@@ -52,7 +59,7 @@ body
       display: inline-block
 
       a
-        color: $ginga
+        color: $ginga-verde
 
         &:hover
           text-decoration: none
@@ -68,3 +75,72 @@ body
 
   .pagination
     margin-top: 100px
+
+    ul.thumb-list > li
+      margin: 0
+
+      img
+        height: 80px
+        width: 80px
+
+  .modal-backdrop, .modal-backdrop.fade.in
+    opacity: 0.2
+
+  #strip
+    min-height: 160px
+    min-width: 100%
+
+  .strip
+    background-color: $ginga-verde
+    padding: 40px 0
+    width: 100%
+
+    p
+      color: white
+      font-size: 35px
+      line-height: 1.2
+
+    i
+      font-size: 22px
+      line-height: 2.6
+
+  .strip-empty
+    background: url("smiley.png") no-repeat center
+    background-color: $ginga-cinza
+    height: 160px
+    width: 100%      
+
+  .nav-pills > .active > a, .nav-pills > .active > a:hover
+    background-color: $ginga-verde
+
+  ul.nav-cloud
+    margin: 40px 0
+
+    li
+      margin: 4px
+    
+      a
+        border: $border 1px solid
+
+    a.s
+      font-size: 1em
+    
+    a.m
+      font-size: 1.4em
+    
+    a.l
+      font-size: 1.6em
+
+    li.all > a 
+      border: 0
+
+  // #posts [class*="span"]:nth-child(3n + 1)
+  .isotope [class*="span"]
+    margin-left: 0
+
+  .isotope-item
+    z-index: 2
+
+  .isotope-hidden.isotope-item
+    pointer-events: none
+    z-index: 1

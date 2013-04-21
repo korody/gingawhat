@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'slim'
 gem 'simple_form'
 gem 'jquery-rails'

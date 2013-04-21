@@ -1,30 +1,28 @@
 Gingawhat::Application.routes.draw do
-    
-  get "videos/index"
 
-  get "videos/show"
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  
+  resources :users
+  
+  resources :idealizadores, path: 'idealizadores', controller: :users
+  resources :colaboradores, path: 'colaboradores', controller: :users
+  resources :participantes, path: 'participantes', controller: :users
+  resources :parceiros, path: 'parceiros', controller: :users
 
-  get "videos/new"
+  resources :sessions    
+  resources :password_resets
 
-  get "videos/edit"
-
-  get "users/index"
-
-  get "users/show"
-
-  get "users/new"
-
-  get "users/edit"
+  resources :videos
 
   resources :cities do
-    resources :thumbnails
+    resources :attachments
   end
 
   resources :posts do
     resources :attachments
   end
-
-  get 'tags/:tag', to: 'posts#index', as: :tag
 
   match '/blog',   to: 'posts#index', as: 'blog'
   match '/hello', to: 'contact#new',     as: 'hello',  via: :get

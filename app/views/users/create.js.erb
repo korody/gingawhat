@@ -1,0 +1,11 @@
+var rv_modal = $('#ajax-modal');
+
+<% if @user.errors.any? %>
+  rv_modal.html('<%= j render("form") %>').modal();
+  setTimeout(function () {
+    rv_modal.find('input#user_name').focus();
+  }, 500);
+<% else %>
+  $('#footer-nav').html('<%= j render "footer_nav" %>');
+  rv_modal.modal('hide').empty();
+<% end %>

@@ -1,5 +1,5 @@
 .custom_span1
-  li.mosaico_item class=active_city?(city.id)
-    - city.thumbnails.shuffle.first(1).each do |t|
-      = link_to image_tag(t.thumb_url(:thumb)).to_s, posts_path(city: city), city_id: city.id, remote: true
-      p.gradient = link_to city.name, posts_path(city: city), city_id: city.id, remote: true
+  li.mosaico-item class=active_city?(city.id)
+    - city.attachments.shuffle.first(1).each do |t|
+      = link_to image_tag(t.image_url(:thumb)).to_s, { :controller => params[:controller], :city => city }, 'data-filter-value' => ".#{city.id}"
+      p.gradient = link_to city.name, { :controller => params[:controller], :action => 'index', :city => city }, 'data-filter-value' => ".#{city.id}"

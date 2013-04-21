@@ -7,7 +7,7 @@
     .nav-collapse.collapse
       .row
         ul.nav
-          li.span2 = link_to "DIRETO AO PONTO!", blog_path, class: active?('videos', 'index'), title: 'episódios'
+          li.span2 = link_to "DIRETO AO PONTO!", videos_path, class: active?('videos', 'index'), title: 'episódios'
           li.span2 = link_to "UMA TARDE DE SOL", blog_path, class: active?('posts', 'index'), title: 'blog'
           li.span4#logo = link_to (image_tag "logo.png"), root_path, title: 'home'
           li.span2 = link_to "QUEM FAZ ROLAR", users_path, class: active?('users', 'index'), title: 'pessoas'

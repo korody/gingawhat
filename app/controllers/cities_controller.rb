@@ -1,4 +1,6 @@
 class CitiesController < ApplicationController
+  before_filter :authenticate, only: [:new, :create, :destroy, :edit]
+
   def index
     @cities = City.scoped
   end
@@ -13,6 +15,11 @@ class CitiesController < ApplicationController
 
   def create
     @city = City.create(params[:city])
+    if @city.save
+      redirect_back_or @city, notice: "Cidade criada!"
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -27,7 +34,7 @@ class CitiesController < ApplicationController
 
   def destroy
     City.find(params[:id]).destroy
-    redirect_to :back
+    redirect_to root_path
   end
 
 end

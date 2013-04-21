@@ -1,0 +1,9 @@
+var rv_modal = $('#ajax-modal');
+
+<% if signed_in? %>
+  $('#footer-nav').html('<%= j render "footer_nav" %>');
+  $('.session-fields').hide();
+  rv_modal.modal('hide').empty();
+<% else %>
+  rv_modal.html('<%= j render("sessions/form") %>').modal();
+<% end %>

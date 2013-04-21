@@ -1,7 +1,7 @@
 namespace :db do
   desc "Fill database with sample data"
   task :populate => :environment do
-    Rake::Task['db:reset'].invoke
+    # Rake::Task['db:reset'].invoke
     make_posts
     make_tags
     # make_microposts
@@ -13,7 +13,7 @@ def make_posts
   99.times do |n|
     title  = Faker::Name.title
     content = Faker::Lorem.paragraphs(6)
-    Post.create!(title: title, content: content)
+    Post.create!(title: title, content: content, user_id: '3', from_city: 'Fortaleza')
   end
 end
 

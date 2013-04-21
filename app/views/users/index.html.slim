@@ -1,0 +1,11 @@
+- provide :title, 'pessoas'
+section
+  .row-fluid
+    = render 'city_stretch'
+    section        
+      .container.ac
+        ul#user-cloud.nav-cloud.nav.nav-pills.option-set data-filter-group='users'
+          - User.types.each do |type|
+            li
+              a href=users_path(type: type) data-filter-value='.#{type.downcase}' = type.upcase
+      = render 'index'

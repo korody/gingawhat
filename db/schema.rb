@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130331133418) do
+ActiveRecord::Schema.define(:version => 20130416023749) do
 
   create_table "attachments", :force => true do |t|
     t.text     "description"
-    t.string   "file"
+    t.string   "image"
     t.integer  "attachable_id"
     t.string   "attachable_type"
     t.datetime "created_at",      :null => false
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(:version => 20130331133418) do
     t.string   "title"
     t.text     "content"
     t.integer  "user_id"
+    t.integer  "city_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "city_id"
   end
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
@@ -64,14 +64,37 @@ ActiveRecord::Schema.define(:version => 20130331133418) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "thumbnails", :force => true do |t|
-    t.string   "thumb"
-    t.integer  "thumbable_id"
-    t.string   "thumbable_type"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "title"
+    t.text     "bio"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.string   "social"
+    t.string   "website"
+    t.string   "type"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.integer  "city_id"
   end
 
-  add_index "thumbnails", ["thumbable_id"], :name => "index_thumbnails_on_thumbable_id"
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.string   "description"
+    t.string   "type"
+    t.integer  "filmable_id"
+    t.string   "filmable_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "videos", ["filmable_id"], :name => "index_videos_on_filmable_id"
 
 end

@@ -1,7 +1,3 @@
 - provide :title, 'blog'
-section
-  .row-fluid
-    ul#stretch
-      - @cities.shuffle.each do |city|
-        = render 'cities/city', city: city
+= render 'city_stretch'
 = render 'index'

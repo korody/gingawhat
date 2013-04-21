@@ -1,8 +1,8 @@
 class City < ActiveRecord::Base
-  attr_accessible :description, :name, :thumbnails_attributes
+  attr_accessible :description, :name, :attachments_attributes
 
-  has_many :thumbnails, as: :thumbable, dependent: :destroy
+  has_many :attachments, as: :attachable, dependent: :destroy
 
-  accepts_nested_attributes_for :thumbnails
+  accepts_nested_attributes_for :attachments
 
 end

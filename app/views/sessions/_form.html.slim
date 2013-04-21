@@ -1,0 +1,19 @@
+= form_tag sessions_path, remote: request.xhr?, class: 'block-level' do
+  .modal-header
+    - if request.xhr?
+      button.close type="button" data-dismiss="modal" aria-hidden="true" &times;
+    h3 embarque
+    | Novo por aqui? #{link_to "Cadastre-se!", signup_path, remote: request.xhr?}
+  .modal-body
+    = render partial: 'flash', object: flash
+    = label_tag :email, "email"
+    = text_field_tag :email, params[:email], autofocus: true
+    = label_tag :password, 'senha'
+    = password_field_tag :password
+    label.checkbox
+      = check_box_tag :remember_me
+      p viajante recorrente
+    .ajax-loader
+  .modal-footer
+    = submit_tag "embarcar", class: 'btn btn-success fl', 'data-disable-with' => "embarcando..."
+    = link_to "Falhou a memória?", new_password_reset_path, remote: request.xhr?, class: 'fr'

@@ -3,11 +3,11 @@ $gray: #777
 $text: #231F20
 $base: #F8F8F8
 $base-creme: #FFF9F3
-$ginga: #63CE6E
-$ginga-coral: #F35C54
-$ginga-azul: #56BCBC
-$ginga-laranja: #F79A06
-$ginga-cinza: #231F20
+$ginga-verde: rgba(15, 179, 30, 0.65)
+$ginga-coral: rgba(243, 92, 84, 0.65)
+$ginga-azul: rgba(86, 188, 188, 0.65)
+$ginga-laranja: rgba(247, 154, 6, 0.65)
+$ginga-cinza: rgba(35, 31, 32, 0.65)
 $postal: #B09F73
 $postal-marine: #2C556D
 
@@ -40,7 +40,7 @@ ul
     list-style-type: none
 
 a
-  color: $ginga
+  color: $gray
 
   &:hover
     color: #777
@@ -48,5 +48,31 @@ a
   &:hover
     text-decoration: none
 
-.center
-  text-align: center
+.gradient
+  /* fallback (Opera) */
+  background: transparent
+  /* Mozilla: */
+  background: -moz-linear-gradient(top, transparent, #D8D8D8)
+  /* Chrome, Safari:*/
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#D8D8D8))
+  /* MSIE */
+//  filter: progid:DXImageTransform.Microsoft.Gradient(
+//              StartColorStr='#E2492F', EndColorStr='#E2492F', GradientType=0);
+
+// ALIGNMENT CLASSES 
+// --------------------------------------------------
+
+.fl
+  float: left
+
+.fr
+  float: right
+
+.ac
+  text-align: center !important
+
+.al
+  text-align: left
+
+.ar
+  text-align: right

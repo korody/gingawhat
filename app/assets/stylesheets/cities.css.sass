@@ -4,14 +4,14 @@
 
 ul#stretch
   // background-color: $ginga
-  float: left
+  // float: left
 
   .custom_span1
     float: left
     margin: 0
     width: 8.33%
   
-  li.mosaico_item
+  li.mosaico-item
     display: inline-block
     position: relative
 
@@ -34,7 +34,7 @@ ul#stretch
     a
       color: #FFF
 
-  li.mosaico_item.active
+  li.mosaico-item.active
   
     img
       @include transparency(1)
@@ -43,7 +43,7 @@ ul#stretch
     p
       visibility: visible
 
-  li.mosaico_item:hover
+  li.mosaico-item:hover
 
     img
       @include transparency(1)
@@ -52,24 +52,14 @@ ul#stretch
     p
       visibility: visible
 
-.gradient
-  /* fallback (Opera) */
-  background: transparent
-  /* Mozilla: */
-  background: -moz-linear-gradient(top, transparent, #D8D8D8)
-  /* Chrome, Safari:*/
-  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#D8D8D8))
-  /* MSIE */
-//  filter: progid:DXImageTransform.Microsoft.Gradient(
-//              StartColorStr='#E2492F', EndColorStr='#E2492F', GradientType=0);
-
 
 /* ----- EDIT ----- */
 
 .city-background
   position: absolute
-  top: 0
+  // top: 0
   z-index: -1
+  opacity: 0.4
 
 ul.thumb-list
   margin: 0

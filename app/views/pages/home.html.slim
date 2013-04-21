@@ -1,4 +1,4 @@
 section.home-background
   - @cities.each do |city|
-    - city.thumbnails.shuffle.first(1).each do |t|
-      = image_tag(t.thumb_url).to_s
+    - city.attachments.shuffle.first(1).each do |t|
+      = image_tag(t.image_url).to_s

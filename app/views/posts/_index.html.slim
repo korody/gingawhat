@@ -1,36 +1,23 @@
 section#remote        
   .container
-    ul#tag-cloud.nav.nav-pills
-      - if @city
-        - @posts.each do |p|
-          - p.tags.each do |tag|
-            li
-              a href=tag_path(tag.name) data-filter='.#{tag.name}' = tag.name
-      - else  
-        - tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class|
-          li
-            a href=tag_path(tag.name) class=css_class data-filter='.#{tag.name}' = tag.name
-      li.all = link_to "ver todas", nil
-  .row-fluid
+    ul.nav-cloud.nav.nav-pills.option-set data-filter-group='tags'
+      - tag_cloud @posts.tag_counts, %w[s m l] do |tag, css_class|
+        li
+          a href=posts_path(tag: tag.name) class=css_class data-filter-value='.#{tag.name}' = tag.name
+      / li.all = link_to "ver todas", nil
+  .row-fluid.ac
     - if @posts_by_month.any?
       - @posts_by_month.each do |month, posts|
-        .strip-month
-          p.post-strip.center = month.strftime('%b</br>%Y').upcase.html_safe
-        #posts.thumbnails
-          .corner-strip.thumbnail.element
-            - if params[:tag]
-              p.center = "#{(pluralize posts.size ,'post').upcase} COM A TAG #{params[:tag].upcase} #{icon_tag 'arrow-right'}".html_safe
-              p.center = "<small>#{link_to 'ver todos os posts', blog_path}</small>".html_safe
-            - elsif params[:city]
-              p.center = "#{(pluralize posts.size ,'post').upcase} EM #{@city.name.upcase} #{icon_tag 'arrow-right'}".html_safe
-              p.center = "<small>#{link_to 'ver posts de todas as cidades', blog_path}</small>".html_safe
-            - else
-              p.center = "#{(pluralize @all_posts.size ,'post').upcase} NO BLOG #{icon_tag 'arrow-right'}".html_safe
-          = render @posts
-        .center = paginate_with @posts
+        .isotope
+          = content_tag 'div', id:'strip', class:"element #{posts.map { |p| p.tags.map(&:name).map { |t| t } }.join(' ')} #{posts.map { |p| p.city_id }.join(' ')}".html_safe do
+            = render 'strip', month: month, posts: posts if posts
+        #posts.thumbnails.isotope
+          = render posts
+      = paginate_with @posts
     - else
       .strip-empty
-      p.not-yet.center = "ainda não chegamos em #{@city.name}... #{icon_tag 'plane'}".html_safe
+      p.not-yet = "Ah, não! Nenhum post de #{@city.name} por enquanto...".html_safe if params[:city]
+      p.not-yet = "Ah, não! Nenhum post sobre #{params[:tag]} por aqui...".html_safe if params[:tag]
       / = render 'contact/new'
 
-    / = link_to "new post", new_post_path, class: 'btn btn-success'
+    = link_to "new post", new_post_path, class: 'btn btn-success' if current_user

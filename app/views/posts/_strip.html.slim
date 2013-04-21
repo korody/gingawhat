@@ -1,0 +1,18 @@
+- if params[:city]
+  .strip-month
+    .container
+      p.size = (pluralize posts.size ,'post').upcase
+      p.post-strip = month.strftime('%b</br>%Y').upcase.html_safe
+      p.record = "@#{@city.name.upcase}".html_safe
+- elsif params[:tag]
+  .strip-month
+    .container
+      p.size = (pluralize posts.size ,'post').upcase
+      p.post-strip = month.strftime('%b</br>%Y').upcase.html_safe
+      p.record = "##{params[:tag].upcase}".html_safe
+- else
+  .strip-month
+    .container
+      p.size = (pluralize posts.size ,'post').upcase
+      p.post-strip = month.strftime('%b</br>%Y').upcase.html_safe 
+      p.record BLOG

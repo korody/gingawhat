@@ -1,0 +1,43 @@
+.form-pod
+  = simple_nested_form_for @user, as: :user, remote: request.xhr?, html: { class: 'form-vertical', multipart: true } do |f|
+    .modal-header
+      - if request.xhr?
+        button.close type="button" data-dismiss="modal" aria-hidden="true" &times;
+      h3 = "cadastro #{@user.name if @user}".html_safe
+      p = "Já é do pedaço? #{link_to "Embarque!", login_path, remote: request.xhr?}".html_safe if !signed_in?
+    .modal-body
+      = render 'error_messages', object: @user
+      ul.thumb-list
+        - @user.attachments.first(1).each do |t|
+          li = image_tag(t.image_url(:thumb)).to_s
+      = f.simple_fields_for :attachments do |a|
+        = a.file_field :image, class: 'btn btn-small btn-primary'
+        / = a.link_to_remove "remove image field", class: 'btn btn-danger'
+      = f.link_to_add "add image field", :attachments, class: 'btn btn-small'
+      = f.label :type, "tipo"
+      = f.select :type, User.types  
+      = f.label :name, "nome"
+      = f.text_field :name, autofocus: true
+      = f.label :title, "título"
+      = f.text_field :title
+      = f.label :email, "email"
+      = f.text_field :email
+      = f.label :bio, "bio"
+      = f.input :bio, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 20}
+      = f.label :facebook, "facebook"
+      = f.text_field :facebook
+      = f.label :twitter, "twitter"
+      = f.text_field :twitter
+      = f.label :instagram, "instagram"
+      = f.text_field :instagram
+      = f.label :social, "outra rede"
+      = f.text_field :social
+      = f.label :website, "website"
+      = f.text_field :website
+      = f.label :password, "senha"
+      = f.password_field :password
+      = f.label :password_confirmation, "mesma senha"
+      = f.password_field :password_confirmation
+      .ajax-loader
+    .modal-footer
+      = submit_tag "pronto", class: 'btn btn-success fl', 'data-disable-with' => "registrando..."

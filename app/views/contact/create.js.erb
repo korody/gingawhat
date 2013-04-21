@@ -1,7 +1,7 @@
 var $postal = $('#postal-frame'); 
     $sent = $('#postal-sent'); 
   <% if @message.valid? %>
-    $sent.css('visibility','visible');
+    $sent.html("<%= j render partial: 'flash', object: flash %>");
     $postal.hide("slide", { direction: "right" }, 800);
     setTimeout(function() {
       $postal.show("slide", 1500).html("<%= j render 'new' %>");

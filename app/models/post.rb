@@ -5,10 +5,13 @@ class Post < ActiveRecord::Base
   attr_accessor :from_city
 
   belongs_to :city
+  belongs_to :user
 
   has_many :attachments, as: :attachable
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
+
+  validates :user_id, presence: true
 
   before_save :assign_city
 

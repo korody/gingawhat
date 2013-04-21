@@ -1,13 +1,8 @@
 - provide :title, 'hello'
 .container
   .row#postal-sent
-    - flash.each do |key, message|
-      div class="alert alert-#{key}"
-        a.close data-dismiss="alert" &times; 
-        p = message
 .container#postal-frame
   .row#contact-background
-    / = image_tag "postal.jpg"
   .row#contact-container
     .span12#postal 
       = render 'form'

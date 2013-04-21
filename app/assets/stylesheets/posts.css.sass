@@ -1,45 +1,48 @@
 @import 'presets'
 
-#remote
-  margin-bottom: 80px
-  min-height: 200px
-
 .strip-month
   background: url("ring.png") no-repeat center
-  background-color: $ginga
+  background-color: $ginga-verde
   padding: 40px 0
+  position: relative
   width: 100%
 
-.strip-empty
-  background: url("smiley.png") no-repeat center
-  background-color: rgba(86, 188, 188, 0.65)
-  height: 160px
-  width: 100%
+  .container
+    position: relative
+
+p.size, p.record
+  color: rgba(255, 255, 255, 0.17)
+  font-size: 70px
+  position: absolute
+  top: 30px
+  vertical-align: middle
+
+p.record
+  right: 0
 
 p.post-strip
   color: white
   font-size: 30px
-  line-height: 1.2
+  line-height:  1.2
 
-.corner-strip
+// .corner-strip
   // border: $ginga 1px dashed
-  background-color: $base
-  color: $gray
-  font-size: 16px
-  margin-bottom: 1px
-  padding: 40px 0
+  // background-color: $base
+  // color: $gray
+  // font-size: 16px
+  // margin-bottom: 1px
+  // padding: 40px 0
 
-  p
-    margin: 0
+  // p
+  //   margin: 0
   
-  i
-    margin: 6px
-
-// .row-fluid [class*="span"]:nth-child(3n + 1)
-.row-fluid [class*="span"]
-  margin: 0
+  // i
+  //   margin: 6px
 
 .post
+  background-color: white
+  border: 1px dashed $border
+  // margin: 14px
   padding: 20px 20px 10px
   position: relative
 
@@ -49,33 +52,34 @@ p.post-strip
   p
     margin: 20px 0
 
-  span
-    position: absolute
-    height: 100%
-    left: 0
-    padding-top: 62px
-    top: 0
-    width: 100%
-    z-index: 2
-
   p.post-date
     color: $gray
     font-size: 24px
     line-height: 0.1
-    margin-bottom: 80px
+    margin-bottom: 55px
 
   p.header > a
     color: $gray
     font-size: 16px
+    height: 100%
+    left: 0
+    padding-top: 62px
+    position: absolute
+    top: 0
+    width: 100%
 
-.post-frame
+.post-body
+  z-index: 1
+  position: relative
 
-  p.content
-    font-size: 15px
-    line-height: 1.6
-    text-align: justify
+p.content
+  font-size: 15px
+  line-height: 1.6
+  text-align: justify
 
 .post-footer
+  z-index: 1
+  position: relative
 
   .tags, .by
     font-size: 15px
@@ -84,31 +88,8 @@ p.post-strip
       color: $gray
       margin: 6px
 
-ul#tag-cloud
-  margin: 20px 0
-
-  li
-    margin: 4px
-  
-    a
-      border: $border 1px solid
-
-    .active
-      background-color: #eee
-      color: $gray
-
-  a.s
-    font-size: 1em
-  
-  a.m
-    font-size: 1.4em
-  
-  a.l
-    font-size: 2em
-
-  li.all > a 
-    border: 0
-    color: $gray
+  a
+    z-index: 100
 
 .not-yet
   font-size: 30px

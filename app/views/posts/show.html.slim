@@ -1,3 +1,3 @@
 .container
   = render @post
-  = link_to "edit post", edit_post_path, class: 'btn btn-warning'
+  = link_to "edit post", edit_post_path, class: 'btn btn-warning' if current_user

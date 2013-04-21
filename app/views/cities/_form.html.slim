@@ -1,9 +1,9 @@
 = render 'error_messages', object: @city
 = simple_nested_form_for @city, as: :city, html: { class: 'form-vertical', multipart: true } do |f|
-  = f.simple_fields_for :thumbnails do |a|
-    = a.file_field :thumb, class: 'btn btn-primary'
+  = f.simple_fields_for :attachments do |a|
+    = a.file_field :image, class: 'btn btn-primary'
     / = a.link_to_remove "remove image field", class: 'btn btn-danger'
-  = f.link_to_add "add image field", :thumbnails, class: 'btn'
+  = f.link_to_add "add image field", :attachments, class: 'btn'
   br
   br
   = f.input :name, wrapper: :prepend, error: false, label: false do
@@ -11,3 +11,5 @@
     = f.input_field :name, class: 'span4', placeholder: 'name'
   = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 3}, placeholder: 'description'
   = f.submit 'update city', class: 'btn btn-success span5'
+  br
+  = link_to "delete city", city_path(@city.id), method: 'delete', class: 'btn btn-danger' if !@city.new_record?

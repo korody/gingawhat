@@ -1,0 +1,79 @@
+@import 'presets'
+
+ul#users-list
+  // float: left
+
+  .span3
+    display: inline-block
+    // margin: 0
+    position: relative
+    // width: 25%
+
+  .span3:hover li.mosaico-user
+    visibility: visible
+
+
+  li.mosaico-user  
+    background-color: rgba(98, 205, 108, 0.6)
+    cursor: s-resize
+    bottom: 0
+    height: 100%
+    left: 0
+    position: absolute
+    text-align: center
+    visibility: hidden
+    width: 100%
+
+    span
+      color: white
+      cursor: help
+      display: inline-block
+      padding: 20px
+
+      p
+        font-size: 17px
+
+      i
+        font-size: 28px
+        margin-top: 12px
+
+      a
+        color: white
+
+  li.mosaico-user:before
+    content: ''
+    display: inline-block
+    height: 100%
+    vertical-align: middle
+
+  li.mosaico-user.active
+    visibility: visible
+
+  #bio
+    background-color: white
+    border: 2px dashed $border  
+    border-top: 0
+    padding: 20px 20px 10px
+    position: relative
+    display: none
+
+ul#user-cloud
+  display: inline-block
+  font-size: 14px
+  margin: 55px 0  
+
+  li
+    margin-right: 40px
+
+    &:nth-child(4)
+      margin-right: 4px
+
+
+.strip.colaboradores
+  background-color: $ginga-coral  
+
+.strip.participantes
+  background-color: $ginga-azul  
+
+.strip.parceiros
+  background-color: $ginga-laranja  
