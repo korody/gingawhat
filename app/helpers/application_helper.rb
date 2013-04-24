@@ -18,7 +18,7 @@ module ApplicationHelper
 
   def tag_cloud(tags, classes)
     max = tags.sort_by(&:count).last
-    tags.first(22).each do |tag|
+    tags.last(22).reverse.each do |tag|
       index = tag.count.to_f / max.count.to_i * (classes.size - 1)
       yield(tag, classes[index.round])
     end

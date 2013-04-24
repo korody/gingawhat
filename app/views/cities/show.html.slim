@@ -1,10 +1,15 @@
-section.city-background
-  - @city.attachments.shuffle.first(1).each do |t|
-    = link_to image_tag(t.image_url).to_s, @city
-.container
-  h1 = @city.name
-  ul.thumb-list
-    - @city.attachments.shuffle.each do |t|
-      li
-        = link_to image_tag(t.image_url(:thumb)).to_s, @city
-  = link_to "edit city", edit_city_path, class: 'btn btn-warning' if current_user
+#elment-show.ac
+  #my-carousel.carousel.slide
+    .carousel-inner
+      - @city.attachments.each do |a|
+        .item 
+          = image_tag(a.image_url).to_s
+    - if @city.attachments.count >= 2       
+      a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
+      a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
+  #elment-body.border
+    h2 = @city.name
+    p.content = @city.description if @city.description
+  = render 'fb_interactions'
+  - @city.videos.each do |video|      
+    = render 'videos/video', video: video, type: video.type

@@ -1,0 +1,3 @@
+= content_tag 'div', class:"video-square element #{type.downcase} #{video.city_id}".html_safe do
+  p.video-title.ac = link_to video.title, video
+  iframe src=video.link frameborder="0" allowfullscreen

@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Post < ActiveRecord::Base
-  attr_accessible :content, :title, :user_id, :tag_list, :city_id, :from_city, :attachments_attributes
+  attr_accessible :content, :title, :user_id, :tag_list, :city_id, :from_city, :attachments_attributes, :videos_attributes
 
   attr_accessor :from_city
 
@@ -9,13 +9,14 @@ class Post < ActiveRecord::Base
 
   has_many :attachments, as: :attachable
   has_many :taggings, as: :taggable
+  has_many :videos, as: :filmable
   has_many :tags, through: :taggings
 
   validates :user_id, presence: true
 
   before_save :assign_city
 
-  accepts_nested_attributes_for :attachments
+  accepts_nested_attributes_for :attachments, :videos
 
   CITIES = [nil, "Rio de Janeiro", "São Paulo", "Fortaleza", "Salvador", "Recife", "Natal", "Cuiabá", "Manaus", "Porto Alegre", "Belo Horizonte", "Curitiba", "Brasília"]
 
@@ -35,10 +36,8 @@ class Post < ActiveRecord::Base
 
   def assign_city
     if !from_city.empty?
-      # some_city = Client.find_or_create_by_name(from_city)
       some_city = City.where(name: from_city).first_or_create!
       self.city_id = some_city ? some_city.id : 0
-      # self.client_id = some_city.client_id
     end
   end
     

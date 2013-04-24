@@ -13,4 +13,4 @@
         = icon_tag 'tag' if post.tags.any?
         = raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
       .by.pull-right
-        = "#{icon_tag 'pencil'} postado por #{link_to current_user.name, current_user} há #{time_ago_in_words(post.created_at)}".html_safe
+        = "#{icon_tag 'pencil'} postado por #{link_to post.user.name, current_user} há #{time_ago_in_words(post.created_at)}".html_safe

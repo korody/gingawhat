@@ -1,0 +1,20 @@
+= render 'error_messages', object: @video
+= simple_form_for @video, as: :video, html: { class: 'form-vertical' } do |f|
+  br
+  = f.input :at_city, wrapper: :prepend, error: false, label: false do
+    span.add-on = icon_tag 'globe'
+    = f.select :at_city, Video.cities
+  = f.input :type, wrapper: :prepend, error: false, label: false do
+    span.add-on = icon_tag 'bookmark'
+    = f.select :type, Video.types
+  = f.input :title, wrapper: :prepend, error: false, label: false do
+    span.add-on = icon_tag 'beaker'
+    = f.input_field :title, class: 'span4', placeholder: 'title'
+  = f.input :link, wrapper: :prepend, error: false, label: false do
+    span.add-on = icon_tag 'facetime-video'
+    = f.input_field :link, class: 'span4', placeholder: 'link'
+  = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 4}, placeholder: 'video description'
+  br
+  = f.submit 'update video', class: 'btn btn-large btn-success span5'
+  br
+  = link_to "delete video", video_path(@video.id), method: "delete", class: 'btn btn-danger', confirm: "sure?" if !@video.new_record?  

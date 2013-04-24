@@ -1,0 +1,8 @@
+.row-fluid.ac
+  ul#videos-list.isotope
+    - @videos_by_type.each do |type, videos|
+      = content_tag 'div', class:"span6 element strip #{videos.map { |v| v.city_id }.join(' ')} #{type.downcase}".html_safe do
+        p = "#{type.downcase} #{icon_tag 'chevron-right'}".html_safe
+        / = render 'strip', type: type, users: users
+      - videos.each do |video|
+        = render 'video', video: video, type: type

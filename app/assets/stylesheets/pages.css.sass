@@ -1,21 +1,18 @@
 @import 'presets'
 
 body
-  height: 100%
   font-family: "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans serif
-  // background: url("post.png") no-repeat center
+  height: 100%
+  margin: 0
+  padding: 0
 
   #menubar
-    // background-color: rgba(99, 206, 110, 0.1)
-    // border-bottom: 1px dashed $border  
+    position: relative
+    z-index: 10
 
     ul
       margin: 0
       
-      a
-        text-shadow: none
-        // color: #333
-
     .span2
       padding: 64px 0
 
@@ -28,7 +25,6 @@ body
       img
         height: 150px
         width: 150px
-        z-index: 20
 
     a:hover
       color: $ginga-verde
@@ -36,42 +32,93 @@ body
     a.active
       color: $ginga-verde
 
-  #footer.navbar .nav, #footer.navbar .nav > li
-    display: inline-block
-    height: 40px
-    float: none
-
-    a
-      text-shadow: none
-
-  #container
-    text-align: center
-
-  img.soon
-    height: 201px
-    min-width: 630px
-
-  ul#icons-soon
-    font-size: 40px
-    list-style-type: none
-
-    li
-      display: inline-block
-
-      a
-        color: $ginga-verde
-
-        &:hover
-          text-decoration: none
-          color: #9C9FA4
-
-  .home-background
+  .carousel
+    // margin: 0 -20px 60px
+    background-color: transparent
+    height: 500px
+    left: 0
+    min-width: 100%
     position: absolute
     top: 0
-    z-index: -1
 
-    img
-      width: 100%
+    .carousel-inner
+      height: 500px
+      position: relative
+
+    .item
+      height: 500px
+
+    // img
+      // height: auto
+      // min-width: 100%
+
+    p
+      color: $gray
+      background-color: rgba(255, 255, 255, 0.6)
+      font-size: 14px
+      z-index: 20
+      padding: 4px 10px
+      position: absolute
+      right: 0
+      bottom: 0
+
+    .carousel-control
+      border: 1px solid blue
+      height: 80px
+      margin-top: 25px
+      font-size: 40px
+      text-shadow: 0 1px 1px rgba(0,0,0,.4)
+      background-color: transparent
+      border: 0
+      z-index: 10
+  
+  #hero
+    margin-top: 330px      
+
+    img 
+      min-height: 500px
+
+    #vem
+      a > i
+        color: white
+        font-size: 44px
+        line-height: 1.6
+        margin-right: 40px
+
+  #wrap
+    height: auto !important
+    height: 100%
+    margin: 0 auto -160px
+    min-height: 100%
+    padding-bottom: 140px
+
+  #push, #footer
+    height: 160px
+    position: relative
+
+  #footer
+    width: 1170px
+    
+    #aerogami
+      bottom: 100px
+      left: 84px
+      position: absolute
+
+      a
+        color: #8A97C4
+
+    #kaju
+      bottom: 106px
+      position: absolute
+      right: 74px
+      
+      a
+        color: #DB947A
+
+    #credentials
+      bottom: 80px
+      position: absolute
+      left: 560px
 
   .pagination
     margin-top: 100px
@@ -83,8 +130,22 @@ body
         height: 80px
         width: 80px
 
+  .modal-body
+    max-height: 300px
+
   .modal-backdrop, .modal-backdrop.fade.in
     opacity: 0.2
+
+  ul#menu-cloud
+    display: inline-block
+    font-size: 14px
+    margin: 55px 0  
+
+    li
+      margin-right: 40px
+
+      &:nth-child(4)
+        margin-right: 4px
 
   #strip
     min-height: 160px
@@ -108,7 +169,25 @@ body
     background: url("smiley.png") no-repeat center
     background-color: $ginga-cinza
     height: 160px
-    width: 100%      
+    width: 100%
+
+  .call
+    background-color: white
+
+    p
+      color: $gray  
+
+  #quatro
+    background-color: $ginga-verde  
+
+  .strip.episodios, .strip.colaboradores, #vem
+    background-color: $ginga-coral  
+
+  .strip.pessoas, .strip.participantes, #mapa
+    background-color: $ginga-azul  
+
+  .strip.makingof, .strip.parceiros
+    background-color: $ginga-laranja      
 
   .nav-pills > .active > a, .nav-pills > .active > a:hover
     background-color: $ginga-verde
@@ -126,10 +205,10 @@ body
       font-size: 1em
     
     a.m
-      font-size: 1.4em
+      font-size: 1.2em
     
     a.l
-      font-size: 1.6em
+      font-size: 1.5em
 
     li.all > a 
       border: 0
@@ -144,3 +223,67 @@ body
   .isotope-hidden.isotope-item
     pointer-events: none
     z-index: 1
+
+  #elment-show
+
+    .carousel, .carousel-inner, .item
+      height: 100%
+
+    h3
+      color: $ginga-verde
+
+    h2
+      color: $gray
+
+    p
+      color: black
+      font-size: 18px
+
+
+    #elment-body
+      background-color: rgba(255, 255, 255, 0.8)
+      display: inline-block
+      margin: -40px 0 10px
+      padding: 20px
+      width: 800px
+      position: relative
+      @include round(4px)
+
+  .fb-like, .fb-like-box
+    display: inline-block
+
+  .fb-comments
+    background-color: white
+    display: inline-block
+    margin-bottom: 20px
+    min-height 200px
+    width: 800px
+    padding: 20px
+    @include round(4px)
+
+  .form-container
+    display: inline-block
+
+
+// ----------- WELCOME PAGE ------------ //
+
+  #container
+    text-align: center
+
+  img.soon
+    height: 201px
+    min-width: 630px
+
+  ul#icons-soon
+    font-size: 40px
+    list-style-type: none
+
+    li
+      display: inline-block
+
+      a
+        color: $ginga-verde
+
+        &:hover
+          text-decoration: none
+          color: #9C9FA4

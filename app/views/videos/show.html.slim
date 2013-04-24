@@ -1,0 +1,5 @@
+.container.ac
+  = render 'video', video: @video, type: @video.type
+  br
+  = render 'fb_interactions'
+  = link_to "edit video", edit_video_path(@video), class: 'btn btn-warning' if current_user

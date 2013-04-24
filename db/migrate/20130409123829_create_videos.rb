@@ -5,7 +5,9 @@ class CreateVideos < ActiveRecord::Migration
       t.string :link
       t.string :description
       t.string :type
+      t.integer :city_id
       t.belongs_to :filmable, polymorphic: true
+
 
       t.timestamps
     end

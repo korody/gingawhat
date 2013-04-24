@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416023749) do
+ActiveRecord::Schema.define(:version => 20130424024647) do
 
   create_table "attachments", :force => true do |t|
     t.text     "description"
@@ -89,12 +89,13 @@ ActiveRecord::Schema.define(:version => 20130416023749) do
     t.string   "link"
     t.string   "description"
     t.string   "type"
-    t.integer  "filmable_id"
-    t.string   "filmable_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "city_id"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.integer  "filmable_id"
+    t.string   "filmable_type"
   end
-
-  add_index "videos", ["filmable_id"], :name => "index_videos_on_filmable_id"
 
 end

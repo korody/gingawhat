@@ -1,18 +1,14 @@
 ul.nav#footer-nav
-  li ® ginga what? / tudo quanto é direito reservado!
   - if current_user
     li.dropdown
       a.dropdown-toggle href="#" data-toggle="dropdown"
         span
           = "Olá #{current_user.name}"
-          / = gravatar_for current_user, size: 32, class: 'img-rounded'
         b.caret
       ul.dropdown-menu.al
         li = link_to "eu", user_path(current_user)
-        li = link_to "editar eu", edit_user_path(current_user), remote: true
-        li.divider
+        li = link_to "editar info", edit_user_path(current_user), remote: true
         li = link_to "sair", logout_path
   - else
     li = link_to "Olá passageiro!", login_path, remote: true
-    li = link_to "login", login_path, remote: true
-    li = link_to "sign up", signup_path, remote: true
+    / li = link_to "sign up", signup_path, remote: true

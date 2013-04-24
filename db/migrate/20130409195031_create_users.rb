@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :social
       t.string :website
       t.string :type
-      # t.integer :city_id
+      t.integer :city_id
       t.string :password_digest
       t.string :remember_token
       t.string :password_reset_token

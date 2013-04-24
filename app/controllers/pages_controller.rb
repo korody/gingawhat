@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   end
 
   def home
-    @cities = City.scoped
+    @attachment = Attachment.scoped
   end
 
 end

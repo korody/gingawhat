@@ -45,13 +45,14 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_attributes(params[:user])
-      sign_in @user
-      flash[:success] = "Salve-se quem puder!"
-      redirect_to back: true
-    else
-      render 'edit'
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        sign_in @user
+        format.html { redirect_to @user }
+      else
+        format.html { render 'new' }
+        format.js
+      end
     end
   end
-
 end

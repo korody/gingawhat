@@ -1,3 +1,23 @@
-.container
-  = render @post
-  = link_to "edit post", edit_post_path, class: 'btn btn-warning' if current_user
+#elment-show.ac
+  #my-carousel.carousel.slide
+    .carousel-inner
+      - @post.attachments.each do |a|
+        .item 
+          = image_tag(a.image_url).to_s
+    - if @post.attachments.count >= 2         
+      a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
+      a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
+  #elment-body.border
+    h3 = @post.created_at.strftime('%d.%m.%Y')
+    h2 = @post.title.upcase
+    .post-body
+      p.content = @post.content
+    .post-footer.clearfix
+      .tags.pull-left
+        = icon_tag 'tag' if @post.tags.any?
+        = raw @post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+      .by.pull-right
+        = "#{icon_tag 'pencil'} postado por #{link_to @post.user.name, @post.user} há #{time_ago_in_words(@post.created_at)}".html_safe
+  = render 'fb_interactions'
+  - @post.videos.each do |video|      
+    = render 'videos/video', video: video, type: video.type  

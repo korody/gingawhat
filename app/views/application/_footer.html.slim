@@ -1,4 +1,7 @@
-.navbar.navbar-static-bottom#footer
-  .container
-    .row.ac
+.container.ac
+  #footer
+    #aerogami = "piece of cloud by #{link_to 'AEROGAMI', 'http://www.aerogami.com.br', target: '_blank'}".html_safe
+    #credentials
       = render 'footer_nav'
+    #kaju = "illustrations by #{link_to 'kaju.ink', 'http://www.kajuink.com', target: '_blank'}".html_safe
+    = image_tag 'footer.png'

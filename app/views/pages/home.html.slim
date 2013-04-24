@@ -1,4 +1,34 @@
-section.home-background
-  - @cities.each do |city|
-    - city.attachments.shuffle.first(1).each do |t|
-      = image_tag(t.image_url).to_s
+#my-carousel.carousel.slide
+  .carousel-inner
+    - @attachment.shuffle.each do |a|
+      .item 
+        = image_tag(a.image_url).to_s
+        p = a.description if a.description
+  a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
+  a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
+#hero
+  .strip.call.ac
+    .container
+      p = "Não somos ninguém, mas vamos mostrar ao mundo</br>essa ginga que só o brasileiro tem.".html_safe
+  #quatro
+    .container
+      = image_tag 'quatro.png'  
+  .strip.call.ac
+    .container
+      p = "Unidos por um mesmo ideal.</br>VIAJAR, APRENDER, COMPARTILHAR.".html_safe
+  #mapa
+    .container
+      = image_tag 'mapa.png'  
+  .strip.call.ac
+    .container
+      p Vamos percorrer as 12 cidades sede da copa do mundo para compartilhar momentos, informações e a ginga local.
+  .strip#vem.ac
+    .container
+      p = "VEM COM A GENTE</br>#{icon_link_to 'facebook-sign', 'https://www.facebook.com/pages/ginga-what/573415686019103', target: '_blank', title: 'facebook'} #{icon_link_to 'camera', 'http://www.instagram.com/gingawhat', target: '_blank', title: 'instagram'}".html_safe
+  .container.ac
+    br
+    br
+    .fb-like-box.al data-href="https://www.facebook.com/gingawhatfeed" data-width='600' data-height='800' data-show-faces='true' data-stream='true' data-border-color='white' data-header='false'
+    br
+    br
+    = render 'layouts/tint'

@@ -1,0 +1,11 @@
+- provide :title, 'videos'
+section
+  .row-fluid
+    = render 'city_stretch'
+    section        
+      .container.ac
+        ul#menu-cloud.nav-cloud.nav.nav-pills.option-set data-filter-group='videos'
+          - Video.types.each do |type|
+            li
+              a href=videos_path(type: type) data-filter-value='.#{type.downcase}' = type.upcase
+      = render 'index'

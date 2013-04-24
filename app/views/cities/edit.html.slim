@@ -1,7 +1,4 @@
-section.city-background
-  - @city.attachments.shuffle.first(1).each do |t|
-    = link_to image_tag(t.image_url.to_s), @city
-.container
+.container.ac
   = link_to "<-- back to city", city_path
   h1 = "edit #{@city.name}".html_safe
   ul.thumb-list
@@ -11,4 +8,5 @@ section.city-background
         br
         = link_to "delete image", city_attachment_path(@city, t.id), method: "delete", class: 'btn btn-danger'
   br
-  = render 'form'
+  .form-container.al
+    = render 'form'
