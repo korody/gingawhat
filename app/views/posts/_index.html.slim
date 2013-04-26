@@ -4,12 +4,11 @@ section#remote
       - tag_cloud @posts.tag_counts, %w[s m l] do |tag, css_class|
         li
           a href=posts_path(tag: tag.name) class=css_class data-filter-value='.#{tag.name}' = tag.name
-      / li.all = link_to "ver todas", nil
   .row-fluid.ac
     - if @posts_by_month.any?
       - @posts_by_month.each do |month, posts|
         .isotope
-          = content_tag 'div', id:'strip', class:"element #{posts.map { |p| p.tags.map(&:name).map { |t| t } }.join(' ')} #{posts.map { |p| p.city_id }.join(' ')}".html_safe do
+          = content_tag 'div', class:"element #{posts.map { |p| p.tags.map(&:name).map { |t| t } }.join(' ')} #{posts.map { |p| p.city_id }.join(' ')}".html_safe do
             = render 'strip', month: month, posts: posts if posts
         #posts.thumbnails.isotope
           = render posts
