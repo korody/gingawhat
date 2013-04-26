@@ -8,7 +8,7 @@ section#remote
     - if @posts_by_month.any?
       - @posts_by_month.each do |month, posts|
         .isotope
-          = content_tag 'div', class:"element #{posts.map { |p| p.tags.map(&:name).map { |t| t } }.join(' ')} #{posts.map { |p| p.city_id }.join(' ')}".html_safe do
+          = content_tag 'div', class:"strip-month element #{posts.map { |p| p.tags.map(&:name).map { |t| t } }.join(' ')} #{posts.map { |p| p.city_id }.join(' ')}".html_safe do
             = render 'strip', month: month, posts: posts if posts
         #posts.thumbnails.isotope
           = render posts
