@@ -2,4 +2,5 @@ section
   .row-fluid
     ul#stretch.option-set data-filter-group='cities'
       - @cities.each do |city|
-        = render 'cities/city', city: city
+        .custom_span1
+          = render 'cities/city', city: city
