@@ -1,10 +1,35 @@
 @import 'presets'
 
+
+// ----------- GENERAL ------------ //
+
+
 body
   font-family: "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans serif
   height: 100%
   margin: 0
   padding: 0
+
+  #wrap
+    height: auto !important
+    height: 100%
+    margin: 0 auto -160px
+    min-height: 100%
+    padding-bottom: 140px
+
+
+  // ----------- MODAL ------------ //
+
+
+  .modal-body
+    max-height: 300px
+
+  .modal-backdrop, .modal-backdrop.fade.in
+    opacity: 0.2
+
+
+  // ----------- MENU BAR ------------ //
+
 
   #menubar
     position: relative
@@ -12,11 +37,6 @@ body
 
     ul
       margin: 0
-
-      li > a
-        // background-color: rgba(255, 255, 255, 0.6)
-        text-shadow: none
-        // @include round(4px)
 
     .span2
       padding: 64px 0
@@ -37,8 +57,11 @@ body
     a.active
       color: $ginga-verde
 
+
+  // ----------- CAROUSEL ------------ //
+
+
   .carousel
-    // margin: 0 -20px 60px
     background-color: transparent
     height: 500px
     left: 0
@@ -77,11 +100,15 @@ body
       border: 0
       z-index: 10
   
+
+  // ----------- HEROS ------------ //
+
+
   #hero
     margin-top: 330px      
 
     img 
-      min-height: 500px
+      // min-height: 500px
 
     #vem
       a > i
@@ -90,71 +117,9 @@ body
         line-height: 1.6
         margin-right: 40px
 
-  #wrap
-    height: auto !important
-    height: 100%
-    margin: 0 auto -160px
-    min-height: 100%
-    padding-bottom: 140px
 
-  #push, #footer
-    height: 160px
-    position: relative
+  // ----------- PAGES STRIPS ------------ //
 
-  #footer
-    width: 1170px
-    
-    #aerogami
-      bottom: 100px
-      left: 84px
-      position: absolute
-
-      a
-        color: #8A97C4
-
-    #kaju
-      bottom: 106px
-      position: absolute
-      right: 74px
-      
-      a
-        color: #DB947A
-
-    #credentials
-      bottom: 80px
-      position: absolute
-      left: 560px
-
-  .pagination
-    margin-top: 100px
-
-    ul.thumb-list > li
-      margin: 0
-
-      img
-        height: 80px
-        width: 80px
-
-  .modal-body
-    max-height: 300px
-
-  .modal-backdrop, .modal-backdrop.fade.in
-    opacity: 0.2
-
-  ul#menu-cloud
-    display: inline-block
-    font-size: 14px
-    margin: 55px 0  
-
-    li
-      margin-right: 40px
-
-      &:nth-child(4)
-        margin-right: 4px
-
-  #strip
-    min-height: 160px
-    min-width: 100%
 
   .strip
     background-color: $ginga-verde
@@ -197,6 +162,22 @@ body
   .nav-pills > .active > a, .nav-pills > .active > a:hover
     background-color: $ginga-verde
 
+    
+  // ----------- PAGES MENUS ------------ //
+
+
+  ul#menu-cloud
+    display: inline-block
+    font-size: 14px
+    margin: 55px 0  
+
+    li
+      margin-right: 40px
+
+      &:nth-child(4)
+        margin-right: 4px
+
+
   ul.nav-cloud
     margin: 40px 0
 
@@ -218,6 +199,10 @@ body
     li.all > a 
       border: 0
 
+
+  // ----------- ISOTOPE ------------ //
+
+
   // #posts [class*="span"]:nth-child(3n + 1)
   .isotope [class*="span"]
     margin-left: 0
@@ -228,6 +213,10 @@ body
   .isotope-hidden.isotope-item
     pointer-events: none
     z-index: 1
+
+
+  // ----------- SHOW PAGES ------------ //
+
 
   #elment-show
 
@@ -257,6 +246,9 @@ body
   .fb-like, .fb-like-box
     display: inline-block
 
+  .fb-like-box
+    margin: 40px 0  
+
   .fb-comments
     background-color: white
     display: inline-block
@@ -270,7 +262,43 @@ body
     display: inline-block
 
 
+  // ----------- FOOTER ------------ //
+
+
+  .pagination
+    margin-top: 100px
+
+  #push, #footer
+    height: 160px
+    position: relative
+
+  #footer
+    width: 100%
+    
+    #aerogami
+      bottom: 100px
+      left: 84px
+      position: absolute
+
+      a
+        color: #8A97C4
+
+    #kaju
+      bottom: 106px
+      position: absolute
+      right: 74px
+      
+      a
+        color: #DB947A
+
+    #credentials
+      bottom: 80px
+      position: absolute
+      left: 560px
+
+
 // ----------- WELCOME PAGE ------------ //
+
 
   #container
     text-align: center
@@ -292,3 +320,11 @@ body
         &:hover
           text-decoration: none
           color: #9C9FA4
+  
+
+  ul.thumb-list > li
+    margin: 0
+
+    img
+      height: 80px
+      width: 80px  
