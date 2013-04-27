@@ -2,10 +2,15 @@
   .post.ac.thumbnail
     p.post-date = post.created_at.strftime('%d')
     p.header = link_to post.title.upcase, post
-    ul.image-list
-      - post.attachments.each do |t|
-        li
-          = image_tag(t.image_url(:medium)).to_s
+    - if post.videos.any?
+      - post.videos.first(1).each do |video|      
+        .video-square
+          iframe src=video.link frameborder="0" allowfullscreen
+    - else  
+      ul.image-list
+        - post.attachments.each do |t|
+          li
+            = image_tag(t.image_url(:medium)).to_s
     .post-body
       p.content = "#{truncate(post.content, length: 800)} #{link_to "quero +", post}".html_safe
     .post-footer.clearfix

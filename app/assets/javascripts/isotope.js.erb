@@ -46,14 +46,14 @@ function getUnitWidth() {
   var width;
   if ($(".visible-phone").is(":visible")) {
     width = $container.width() / 1;
-  } else if ($(".visible-tablet").is(":visible")) {
+  } else if ($(".visible-tablet, #videos-list").is(":visible")) {
     width = $container.width() / 2;
-  // } else if ($("#posts").is(":visible")) {
-    // width = $container.width() / 3;
-  // } else if ($("#users-list").is(":visible")) {
-    // width = $container.width() / 4;
-  } else {
+  } else if ($("#posts").is(":visible")) {
     width = $container.width() / 3;
+  } else if ($("#users-list").is(":visible")) {
+    width = $container.width() / 4;
+  } else {
+    width = $container.width() / 5;
   }
   return width;
 }
