@@ -29,4 +29,4 @@
   = f.input :description, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 3}, placeholder: 'description'
   = f.submit 'update city', class: 'btn btn-success span5'
   br
-  = link_to "delete city", city_path(@city.id), method: 'delete', class: 'btn btn-danger' if !@city.new_record?
+  = link_to "delete city", city_path(@city.id), method: 'delete', class: 'btn btn-danger', confirm: "sure you want to delete?" if !@city.new_record?

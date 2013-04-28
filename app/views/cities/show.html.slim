@@ -1,4 +1,4 @@
-#elment-show.ac
+#element-show.ac
   #my-carousel.carousel.slide
     .carousel-inner
       - @city.attachments.each do |a|
@@ -7,9 +7,11 @@
     - if @city.attachments.count >= 2       
       a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
       a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
-  #elment-body.border
-    h2 = @city.name
-    p.content = @city.description if @city.description
-  = render 'fb_interactions'
-  - @city.videos.each do |video|      
-    = render 'videos/video', video: video, type: video.type
+  .container.ac
+    #element-body.border
+      h2 = @city.name
+      p.content = @city.description if @city.description
+    = render 'fb_interactions'
+    - @city.videos.each do |video|      
+      = content_tag 'div', class:"element-video element #{video.type.downcase} #{video.city_id}".html_safe do
+        iframe src=video.link frameborder="0" allowfullscreen

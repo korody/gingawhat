@@ -9,7 +9,7 @@ class Video < ActiveRecord::Base
 
   validates :link, presence: true
 
-  TYPES = %w[Teasers Episodios Pessoas Makingof]
+  TYPES = %w[Teasers Programas Pessoas Makingof]
   CITIES = [nil, "Rio de Janeiro", "São Paulo", "Fortaleza", "Salvador", "Recife", "Natal", "Cuiabá", "Manaus", "Porto Alegre", "Belo Horizonte", "Curitiba", "Brasília"]
 
   validates :type, presence: true, inclusion: { in: TYPES }
@@ -52,7 +52,7 @@ class Video < ActiveRecord::Base
   end
 end
 
-class Episodios < Video
+class Programas < Video
 end
 
 class Teasers < Video

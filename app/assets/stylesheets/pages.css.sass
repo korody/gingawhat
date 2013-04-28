@@ -60,21 +60,21 @@ body
 
   // ----------- CAROUSEL ------------ //
 
-
+  
   .carousel
     background-color: transparent
-    height: 500px
+    height: 600px
     left: 0
     min-width: 100%
     position: absolute
     top: 0
 
     .carousel-inner
-      height: 500px
+      height: 600px
       position: relative
 
     .item
-      height: 500px
+      height: 600px
 
     // img
       // height: auto
@@ -105,7 +105,7 @@ body
 
 
   #hero
-    margin-top: 330px      
+    margin-top: 430px      
 
     img 
       // min-height: 500px
@@ -150,17 +150,20 @@ body
   #quatro
     background-color: $ginga-verde  
 
-  .strip.episodios, .strip.colaboradores, #vem
+  .strip.programas, .strip.colaboradores, #vem,
+  li.active > a.programas, li.active > a.programas:hover,
+  li.active > a.colaboradores, li.active > a.colaboradores:hover
     background-color: $ginga-coral  
 
-  .strip.pessoas, .strip.participantes, #mapa
+  .strip.pessoas, .strip.participantes, #mapa,
+  li.active > a.pessoas, li.active > a.pessoas:hover,
+  li.active > a.participantes, li.active > a.participantes:hover
     background-color: $ginga-azul  
 
-  .strip.makingof, .strip.parceiros
+  .strip.makingof, .strip.parceiros,
+  li.active > a.makingof, li.active > a.makingof:hover,
+  li.active > a.parceiros, li.active > a.parceiros:hover
     background-color: $ginga-laranja      
-
-  .nav-pills > .active > a, .nav-pills > .active > a:hover
-    background-color: $ginga-verde
 
     
   // ----------- PAGES MENUS ------------ //
@@ -199,6 +202,9 @@ body
     li.all > a 
       border: 0
 
+  .nav-pills > .active > a, .nav-pills > .active > a:hover
+    background-color: $ginga-verde
+
 
   // ----------- ISOTOPE ------------ //
 
@@ -218,7 +224,7 @@ body
   // ----------- SHOW PAGES ------------ //
 
 
-  #elment-show
+  #element-show
 
     .carousel, .carousel-inner, .item
       height: 100%
@@ -234,18 +240,19 @@ body
       font-size: 18px
 
 
-    #elment-body
+    #element-body
       background-color: rgba(255, 255, 255, 0.8)
       display: inline-block
       margin: -40px 0 10px
       padding: 20px
-      width: 60%
+      width: 70%
       position: relative
       @include round(4px)
 
   .fb-like, .fb-like-box
     display: inline-block
     margin: 20px 0  
+    width: 70%
 
   .fb-comments
     background-color: white
@@ -254,6 +261,24 @@ body
     min-height 200px
     padding: 20px
     @include round(4px)
+
+
+  .element-video
+    position: relative
+    padding-bottom: 67.5%
+    height: 0
+    margin: 20px 0
+    overflow: hidden
+   
+    .element 
+      padding-bottom: 57.25%
+
+    iframe, object, embed
+      height: 100%
+      left: 0
+      position: absolute
+      top: 0
+      width: 100%
 
   .form-container
     display: inline-block

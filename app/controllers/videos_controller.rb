@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_filter :authenticate, only: [:new, :create, :destroy, :edit]
-  before_filter :authorized_user, only: [:edit, :update, :destroy]
+  # before_filter :authorized_user, only: [:edit, :update, :destroy]
 
   def index
     @videos = Video.filter(params).order('videos.created_at ASC').paginate(page: params[:page], per_page: 20)
@@ -40,7 +40,7 @@ class VideosController < ApplicationController
 
   def destroy
     Video.find(params[:id]).destroy
-    redirect_to @videos
+    redirect_to videos_path
   end
 
   private

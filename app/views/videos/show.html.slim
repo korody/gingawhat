@@ -1,5 +1,7 @@
 .container.ac
-  = render 'video', video: @video, type: @video.type
+  = content_tag 'div', class:"element-video element #{@video.type.downcase} #{@video.city_id}".html_safe do
+    iframe src=@video.link frameborder="0" allowfullscreen
   br
   = render 'fb_interactions'
-  = link_to "edit video", edit_video_path(@video), class: 'btn btn-warning' if current_user
+  br
+  = link_to "edit video", edit_video_path(@video), class: 'btn btn-block btn-large btn-warning' if current_user

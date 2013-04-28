@@ -19,7 +19,7 @@ Gingawhat::Application.routes.draw do
 
   resources :videos
   
-  resources :episodios, path: 'episodios', controller: :videos
+  resources :programas, path: 'programas', controller: :videos
   resources :teasers, path: 'teasers', controller: :videos
   resources :pessoas, path: 'pessoas', controller: :videos
   resources :makingof, path: 'makingof', controller: :videos

@@ -7,5 +7,6 @@ section
         ul#menu-cloud.nav-cloud.nav.nav-pills.option-set data-filter-group='users'
           - User.types.each do |type|
             li
-              a href=users_path(type: type) data-filter-value='.#{type.downcase}' = type.upcase
+              a href=users_path(type: type) data-filter-value='.#{type.downcase}' class=type.downcase = type.upcase
       = render 'index'
+      = link_to "new user", new_user_path, class: 'btn btn-large btn-block btn-success' if current_user

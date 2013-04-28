@@ -17,4 +17,4 @@
   br
   = f.submit 'update video', class: 'btn btn-large btn-success span5'
   br
-  = link_to "delete video", video_path(@video.id), method: "delete", class: 'btn btn-danger', confirm: "sure?" if !@video.new_record?  
+  = link_to "delete video", video_path(@video.id), method: "delete", class: 'btn btn-danger', confirm: "sure you want to delete?" if !@video.new_record?  

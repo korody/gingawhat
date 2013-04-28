@@ -18,5 +18,3 @@ section#remote
       p.not-yet = "Ah, não! Nenhum post de #{@city.name} por enquanto...".html_safe if params[:city]
       p.not-yet = "Ah, não! Nenhum post sobre #{params[:tag]} por aqui...".html_safe if params[:tag]
       / = render 'contact/new'
-
-    = link_to "new post", new_post_path, class: 'btn btn-success' if current_user

@@ -7,5 +7,6 @@ section
         ul#menu-cloud.nav-cloud.nav.nav-pills.option-set data-filter-group='videos'
           - Video.types.each do |type|
             li
-              a href=videos_path(type: type) data-filter-value='.#{type.downcase}' = type.upcase
+              a href=videos_path(type: type) data-filter-value='.#{type.downcase}' class=type.downcase = type.upcase
       = render 'index'
+      = link_to "new video", new_video_path, class: 'btn btn-block btn-large btn-success' if current_user

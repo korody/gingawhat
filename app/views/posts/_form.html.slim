@@ -36,4 +36,4 @@
   br
   = f.submit 'update post', class: 'btn btn-large btn-success span5'
   br
-  = link_to "delete post", post_path(@post.id), method: "delete", class: 'btn btn-danger', confirm: "sure?" if !@post.new_record?  
+  = link_to "delete post", post_path(@post.id), method: "delete", class: 'btn btn-danger', confirm: "sure you want to delete?" if !@post.new_record?  

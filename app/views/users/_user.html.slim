@@ -5,6 +5,6 @@
     span.border
       h2 = user.name
       p = user.title
-      p = "#{icon_link_to 'facebook', user.facebook, target: '_blank', title: 'facebook' if user.facebook?} #{icon_link_to 'twitter', user.twitter, target: '_blank', title: 'twitter' if user.twitter?} #{icon_link_to 'camera', user.instagram, target: '_blank', title: 'instagram' if user.instagram?} #{icon_link_to 'bullhorn', user.social, target: '_blank', title: 'rede social' if user.social?} #{icon_link_to 'globe', user.website, target: '_blank', title: 'website' if user.website?}".html_safe
+      = render 'user_social', user: user
   #bio
     p.content = "#{truncate(user.bio, length: 700)} #{link_to 'conta +', user, class: 'fr'}".html_safe

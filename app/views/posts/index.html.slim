@@ -1,3 +1,4 @@
 - provide :title, 'blog'
 = render 'city_stretch'
 = render 'index'
+= link_to "new post", new_post_path, class: 'btn btn-large btn-block btn-success' if current_user
