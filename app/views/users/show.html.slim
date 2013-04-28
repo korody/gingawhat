@@ -13,7 +13,7 @@
       p.content = @user.bio
       = render 'user_social', user: @user
     = render 'fb_interactions'
-    - @user.videos.each do |video|
-      = content_tag 'div', class:"element-video element #{video.type.downcase} #{video.city_id}".html_safe do
-        iframe src=video.link frameborder="0" allowfullscreen      
+    / - @user.videos.each do |video|
+    /   = content_tag 'div', class:"element-video element #{video.type.downcase} #{video.city_id}".html_safe do
+    /     iframe src=video.link frameborder="0" allowfullscreen      
     = link_to "edit user", edit_user_path(@user), class: 'btn btn-large btn-block btn-warning' if current_user
