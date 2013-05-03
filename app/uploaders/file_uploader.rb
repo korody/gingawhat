@@ -12,9 +12,9 @@ class FileUploader < CarrierWave::Uploader::Base
     "#{model.class.to_s.underscore}/#{model.id}"
   end
 
-  def default_url
-    "default/" + [version_name, "logo.jpg"].compact.join('_')
-  end
+  # def default_url
+  #   "default/" + [version_name, "logo.jpg"].compact.join('_')
+  # end
 
   # Process files as they are uploaded:
   # process   :resize_to_fill => [1200, 1200]
