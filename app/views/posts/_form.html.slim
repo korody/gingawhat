@@ -1,10 +1,12 @@
 = render 'error_messages', object: @post
 = simple_nested_form_for @post, as: :post, html: { class: 'form-vertical', multipart: true } do |f|
   = f.simple_fields_for :attachments do |a|
+    ul.attachments-list
+      = render 'attachments/show' if !@post.new_record?
     = a.file_field :image, class: 'btn btn-primary'
     = a.input :description, as: :text, error: false, label: false, input_html: { class: 'span4', rows: 1}, placeholder: 'image description'
     / = a.link_to_remove "remove image field", class: 'btn btn-danger'
-  = f.link_to_add "add image field", :attachments, class: 'btn'
+  = f.link_to_add "add image field", :attachments, class: 'btn' if !@post.attachments.present?
   
   = f.simple_fields_for :videos do |v|
     = v.input :at_city, wrapper: :prepend, error: false, label: false do
@@ -34,6 +36,4 @@
   = f.input :content, as: :text, error: false, label: false, input_html: { class: 'span5', rows: 20}, placeholder: 'content'
   = f.text_field :tag_list, placeholder: 'tags (separated by commas)', class: 'span5'
   br
-  = f.submit 'update post', class: 'btn btn-large btn-success span5'
-  br
-  = link_to "delete post", post_path(@post.id), method: "delete", class: 'btn btn-danger', confirm: "sure you want to delete?" if !@post.new_record?  
+  = f.submit 'update post', class: 'btn btn-large btn-success span5'  

@@ -8,9 +8,14 @@ Gingawhat::Application.routes.draw do
     resources :attachments
   end
 
-  resources :posts
+  resources :posts do
+    resources :attachments
+    resources :tags
+  end
 
-  resources :users
+  resources :users do
+    resources :attachments
+  end
     
   resources :idealizadores, path: 'idealizadores', controller: :users
   resources :colaboradores, path: 'colaboradores', controller: :users

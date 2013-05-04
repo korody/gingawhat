@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 
-  has_many :attachments, as: :attachable
+  has_many :attachments, as: :attachable, dependent: :destroy
   has_many :taggings, as: :taggable
   has_many :videos, as: :filmable
   has_many :tags, through: :taggings

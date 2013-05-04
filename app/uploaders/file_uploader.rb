@@ -5,8 +5,8 @@ class FileUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
-  # storage :file
-  storage :fog
+  storage :file
+  # storage :fog
 
   def store_dir
     "#{model.class.to_s.underscore}/#{model.id}"

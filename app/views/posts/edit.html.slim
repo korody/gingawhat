@@ -2,3 +2,12 @@
   .form-container.al
     h1 = "edit post"
     = render 'form'
+    br
+    h2 edit post data
+    ul.nav-cloud.nav.nav-pills
+      - @post.tags.each do |tag|
+        li 
+          a = tag.name
+          = link_to "delete tag", post_tag_path(@post, tag.id), method: "delete", class: 'btn btn-danger'
+
+    = link_to "delete post", post_path(@post.id), method: "delete", class: 'btn btn-block btn-danger', confirm: "sure you want to delete?" if !@post.new_record?
