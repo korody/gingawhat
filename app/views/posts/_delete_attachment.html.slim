@@ -1,0 +1,6 @@
+ul.attachments-list
+  - post.attachments.shuffle.each do |p|
+    li
+      = image_tag(p.image_url(:thumb)).to_s
+      br
+      = link_to "delete image", post_attachment_path(post, p.id), method: "delete", class: 'btn btn-danger'

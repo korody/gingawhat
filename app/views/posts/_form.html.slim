@@ -2,7 +2,7 @@
 = simple_nested_form_for @post, as: :post, html: { class: 'form-vertical', multipart: true } do |f|
   = f.simple_fields_for :attachments do |a|
     ul.attachments-list
-      = render 'attachments/show' if !@post.new_record?
+      = render "delete_attachment", post: @post if !@post.new_record?   
     = a.file_field :image, class: 'btn btn-primary'
     = a.input :description, as: :text, error: false, label: false, input_html: { class: 'span4', rows: 1}, placeholder: 'image description'
     / = a.link_to_remove "remove image field", class: 'btn btn-danger'

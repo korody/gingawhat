@@ -1,6 +1,7 @@
 .container.ac
   .form-container.al
-    h1 = "edit post"
+    = link_to "<-- back to post", post_path
+    h1 = "edit #{@post.title}"
     = render 'form'
     br
     h2 edit post data

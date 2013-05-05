@@ -2,7 +2,7 @@
   .carousel-inner
     - @attachment.shuffle.each do |a|
       .item 
-        = image_tag(a.image_url).to_s
+        = link_to image_tag(a.image_url).to_s, "#{a.attachable_type.downcase.pluralize}/#{a.attachable_id}"
         p = a.description if a.description
   a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
   a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'

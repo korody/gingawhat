@@ -1,12 +1,5 @@
 .container.ac
-  = link_to "<-- back to city", city_path
-  h1 = "edit #{@city.name}".html_safe
-  ul.thumb-list
-    - @city.attachments.shuffle.each do |t|
-      li
-        = image_tag(t.image_url(:thumb)).to_s
-        br
-        = link_to "delete image", city_attachment_path(@city, t.id), method: "delete", class: 'btn btn-danger'
-  br
   .form-container.al
+    = link_to "<-- back to city", city_path
+    h1 = "edit #{@city.name}".html_safe
     = render 'form'
