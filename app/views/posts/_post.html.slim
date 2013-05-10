@@ -1,3 +1,5 @@
+- content_for :head do
+  = description "#{@post.content}"
 = content_tag 'div', class:"span4 element #{post.tags.map(&:name).map { |t| t }.join(' ')} #{post.city_id}".html_safe do
   .post.ac.thumbnail
     p.post-date = post.created_at.strftime('%d')

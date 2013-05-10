@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @object_description = @post.content
+    @page_description = @post.content
   end
 
   def new

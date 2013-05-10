@@ -33,6 +33,7 @@ GEM
       builder
       mime-types
       xml-simple
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     bootstrap-sass (2.2.1.1)
       sass (~> 3.2)
@@ -86,7 +87,9 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.7)
+    nokogiri (1.5.9)
     nokogiri (1.5.9-x86-mingw32)
+    open-meta-tags (0.4.0)
     pg (0.15.1-x86-mingw32)
     pg_search (0.6.2)
       activerecord (>= 3.1)
@@ -166,6 +169,7 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   nested_form
+  open-meta-tags
   pg
   pg_search
   rails (= 3.2.6)

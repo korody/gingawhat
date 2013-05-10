@@ -7,6 +7,7 @@ html
     = render 'layouts/analytics'
     /[if lt IE 9]
       script src='http://html5shim.googlecode.com/svn/trunk/html5.js'
+    html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"
     meta name='viewport" content="width=device-width, initial-scale=1.0'
     meta https-equiv="Content-type" content="text/html; charset=utf-8"
     meta https-equiv="content-language" content="pt-BR"
@@ -15,7 +16,7 @@ html
     meta property="og:image" content="http://gingawhat.com/assets/logo-458d42032d21a3091fd4ce7c4178077b.png"
     meta property="og:site_name" content="ginga what?"
     meta property="og:type" content="video.tv_show"
-    meta name="description" content="#{@post.title}"
+    meta name="description" content="4 amigos brasileiros percorrendo as 12 cidades sede da copa do mundo para compartilhar momentos, informações e a ginga local."
   body
     = render 'fbsdk'
     = render 'visible_media'
