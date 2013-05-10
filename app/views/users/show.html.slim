@@ -1,4 +1,4 @@
-- set_meta_tags og: { title: "#{@user.name} | #{@user.type}.downcase ginga what?", image: "#{@user.attachments.map { |a| a.image_url }.join('')}", type: 'profile' }
+- set_meta_tags og: { title: "#{@user.name} | #{@user.type.downcase} ginga what?", image: "#{@user.attachments.map { |a| a.image_url }.join('')}", type: 'profile' }
 #element-show.ac
   #my-carousel.carousel.slide
     .carousel-inner
