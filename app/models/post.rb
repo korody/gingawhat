@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   scope :previous, lambda {|id| where("id < ?",id).order("id DESC") }
 
   def next
-    self.class.first(:conditions => ["title < ?", title], :order => "title desc")
+    Post.next(self.id).first
   end
 
   def previous

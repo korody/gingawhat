@@ -1,5 +1,5 @@
 - content_for :head do
-  = description "#{@post.content}"
+  = description "#{@post.title}"
 #element-show.ac
   #my-carousel.carousel.slide
     .carousel-inner
@@ -10,9 +10,9 @@
       a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
       a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
     - if @post.next.present?         
-      a.right.carousel-control href="#{@post.next}" = icon_tag 'chevron-right'
+      a.right.carousel-control href="#{@post.next.id}" title="#{@post.next.title}" = icon_tag 'chevron-right'
     - if @post.previous.present?         
-      a.left.carousel-control href="#{@post.previous}" = icon_tag 'chevron-left'
+      a.left.carousel-control href="#{@post.previous.id}" = icon_tag 'chevron-left'
   .container.ac
     #element-body.border
       h3 = @post.created_at.strftime('%d.%m.%Y')
