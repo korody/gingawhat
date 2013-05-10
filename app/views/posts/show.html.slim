@@ -1,3 +1,5 @@
+- content_for :head do
+  = description "#{@post.content}"
 #element-show.ac
   #my-carousel.carousel.slide
     .carousel-inner
@@ -7,6 +9,10 @@
     - if @post.attachments.count >= 2         
       a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
       a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
+    - if @post.next.present?         
+      a.right.carousel-control href="#{@post.next}" = icon_tag 'chevron-right'
+    - if @post.previous.present?         
+      a.left.carousel-control href="#{@post.previous}" = icon_tag 'chevron-left'
   .container.ac
     #element-body.border
       h3 = @post.created_at.strftime('%d.%m.%Y')
@@ -25,3 +31,5 @@
         iframe src=video.link frameborder="0" allowfullscreen
     = link_to "edit post", edit_post_path(@post), class: 'btn btn-block btn-large btn-warning' if current_user
 
+/ = icon_link_to 'chevron-right', @post.next, title: 'próximo post' if @post.next.present?
+/ = icon_link_to 'chevron-right', @post.next, title: 'post anterior' if @post.previous.present?

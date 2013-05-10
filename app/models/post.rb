@@ -20,6 +20,17 @@ class Post < ActiveRecord::Base
 
   CITIES = [nil, "Rio de Janeiro", "São Paulo", "Fortaleza", "Salvador", "Recife", "Natal", "Cuiabá", "Manaus", "Porto Alegre", "Belo Horizonte", "Curitiba", "Brasília"]
 
+  scope :next, lambda {|id| where("id > ?",id).order("id ASC") } # this is the default ordering for AR
+  scope :previous, lambda {|id| where("id < ?",id).order("id DESC") }
+
+  def next
+    Post.next(self.id).first
+  end
+
+  def previous
+    Post.previous(self.id).first
+  end
+
   def self.cities
     CITIES
   end
