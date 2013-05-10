@@ -81,6 +81,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta-tags (1.5.0)
+      actionpack
     mime-types (1.23)
     multi_json (1.7.2)
     nested_form (0.3.2)
@@ -89,7 +91,6 @@ GEM
     net-ssh (2.6.7)
     nokogiri (1.5.9)
     nokogiri (1.5.9-x86-mingw32)
-    open-meta-tags (0.4.0)
     pg (0.15.1-x86-mingw32)
     pg_search (0.6.2)
       activerecord (>= 3.1)
@@ -168,8 +169,8 @@ DEPENDENCIES
   font-awesome-rails
   jquery-fileupload-rails
   jquery-rails
+  meta-tags
   nested_form
-  open-meta-tags
   pg
   pg_search
   rails (= 3.2.6)
