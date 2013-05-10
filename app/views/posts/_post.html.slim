@@ -1,3 +1,9 @@
+meta property="og:title" content="teste"
+meta property="og:url" content="http://www.gingawhat.com"
+meta property="og:image" content="http://gingawhat.com/assets/logo-458d42032d21a3091fd4ce7c4178077b.png"
+meta property="og:site_name" content="ginga what?"
+meta property="og:type" content="blog"
+meta name="description" content="teste"
 = content_tag 'div', class:"span4 element #{post.tags.map(&:name).map { |t| t }.join(' ')} #{post.city_id}".html_safe do
   .post.ac.thumbnail
     p.post-date = post.created_at.strftime('%d')
