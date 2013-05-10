@@ -6,7 +6,7 @@
       - @post.attachments.each do |a|
         .item 
           = image_tag(a.image_url).to_s
-    - if @post.attachments.count >= 2         
+    / - if @post.attachments.count >= 2         
       a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
       a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
     - if @post.next.present?         
