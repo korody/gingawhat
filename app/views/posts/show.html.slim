@@ -17,7 +17,7 @@
       h3 = @post.created_at.strftime('%d.%m.%Y')
       h2 = @post.title.upcase
       .post-body
-        p.content = @post.content
+        p.content = raw(@post.content).gsub(/\n/, '<br/>').html_safe
       .post-footer.clearfix
         .tags.pull-left
           = icon_tag 'tag' if @post.tags.any?
