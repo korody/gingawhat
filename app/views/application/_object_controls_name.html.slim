@@ -1,6 +1,6 @@
 #element-controls
   #element-arrows
     - if object.previous.present?         
-      a.left href="#{object.previous.id}" title="#{object.previous.name}" = "#{icon_tag 'chevron-left'} #{object.previous.name.upcase}".html_safe
+      a.left href="#{object.previous.id}" title="#{object.previous.name}" = "#{icon_tag 'chevron-left'} #{object.previous.name}".html_safe
     - if object.next.present?         
-      a.right href="#{object.next.id}" title="#{object.next.name}" = "#{object.next.name.upcase} #{icon_tag 'chevron-right'} ".html_safe
+      a.right href="#{object.next.id}" title="#{object.next.name}" = "#{object.next.name} #{icon_tag 'chevron-right'} ".html_safe
