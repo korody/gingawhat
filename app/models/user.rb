@@ -28,6 +28,17 @@ class User < ActiveRecord::Base
 
   validates :type, presence: true, inclusion: { in: TYPES }
 
+  scope :next, lambda {|id| where("id > ?",id).order("id ASC") } # this is the default ordering for AR
+  scope :previous, lambda {|id| where("id < ?",id).order("id DESC") }
+
+  def next
+    User.next(self.id).first
+  end
+
+  def previous
+    User.previous(self.id).first
+  end
+
   def send_password_reset
     self.password_reset_token = SecureRandom.urlsafe_base64
     self.password_reset_sent_at = Time.zone.now

@@ -8,7 +8,8 @@
     - if @user.attachments.count >= 2       
       a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
       a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
-  .container.ac    
+  .container.ac
+    = render 'object_controls_name', object: @user    
     #element-body.border
       h2 = @user.name
       p.content = @user.bio

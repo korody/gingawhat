@@ -12,7 +12,7 @@
           li
             = image_tag(t.image_url(:medium)).to_s
     .post-body
-      p.content = "#{truncate(post.content.gsub(/\n/, '<br/>'), length: 880)} #{link_to '+expandir post', post}".html_safe
+      p.content = "#{truncate(post.content.gsub(/\n/, '<br/>'), length: 880)} #{link_to 'conta +', post, class: 'fr'}".html_safe
     .post-footer.clearfix
       .tags.pull-left
         = icon_tag 'tag' if post.tags.any?

@@ -9,6 +9,7 @@
       a.left.carousel-control href="#my-carousel" data-slide="prev" = icon_tag 'chevron-left'
       a.right.carousel-control href="#my-carousel" data-slide="next" = icon_tag 'chevron-right'
   .container.ac
+    = render 'object_controls_name', object: @city
     #element-body.border
       h2 = @city.name
       p.content = @city.description if @city.description

@@ -1,5 +1,6 @@
 - set_meta_tags og: { title: "#{@video.title} | #{@video.type.downcase} ginga what?", image: "https://s3-sa-east-1.amazonaws.com/gingawhat/logo.png", type: 'video.tv_show' }
 .container.ac
+  = render 'object_controls_title', object: @video
   = content_tag 'div', class:"element-video element #{@video.type.downcase} #{@video.city_id}".html_safe do
     iframe src=@video.link frameborder="0" allowfullscreen
   br

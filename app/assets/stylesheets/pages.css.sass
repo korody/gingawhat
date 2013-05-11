@@ -242,14 +242,35 @@ body
     .btn
       position: relative
 
-    #element-body
-      background-color: rgba(255, 255, 255, 0.8)
-      display: inline-block
-      margin: -40px 0 10px
-      padding: 20px
-      width: 70%
-      position: relative
-      @include round(4px)
+  #element-controls
+    font-size: 24px
+    // position: relative
+
+  #element-arrows
+
+    a
+      position: absolute
+      color: white
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4)
+      opacity: 0.6
+      
+    a:hover
+      opacity: 1
+
+    .left
+      left: 8px
+
+    .right
+      right: 8px
+      
+  #element-body
+    background-color: rgba(255, 255, 255, 0.9)
+    display: inline-block
+    margin: -40px 0 10px
+    padding: 20px
+    width: 70%
+    position: relative
+    @include round(4px)
 
   .fb-like, .fb-like-box
     display: inline-block

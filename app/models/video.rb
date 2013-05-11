@@ -18,6 +18,17 @@ class Video < ActiveRecord::Base
 
   before_save :assign_city, :normalize_link
 
+  scope :next, lambda {|id| where("id > ?",id).order("id ASC") } # this is the default ordering for AR
+  scope :previous, lambda {|id| where("id < ?",id).order("id DESC") }
+
+  def next
+    Video.next(self.id).first
+  end
+
+  def previous
+    Video.previous(self.id).first
+  end
+
   def normalize_link
     if link
       self.link = link.gsub("watch?v=", "embed/").gsub("http://www", "https://www")
